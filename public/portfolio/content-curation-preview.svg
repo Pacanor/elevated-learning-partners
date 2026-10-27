@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title">
+  <title id="title">Smart content curation workshop preview</title>
+  <rect width="960" height="540" rx="28" fill="#f4f3eb"/>
+  <circle cx="830" cy="85" r="138" fill="#d2aa5c" opacity=".23"/>
+  <circle cx="109" cy="470" r="178" fill="#8f9f8e" opacity=".25"/>
+  <text x="64" y="82" font-family="Arial" font-size="16" letter-spacing="4" fill="#576a5e">FACULTY DEVELOPMENT</text>
+  <text x="64" y="140" font-family="Georgia" font-size="46" fill="#0d261d">Smart content curation</text>
+  <text x="64" y="188" font-family="Georgia" font-size="46" fill="#0d261d">for educators</text>
+  <g transform="translate(64 245)" font-family="Arial">
+    <rect width="248" height="190" rx="20" fill="#fff" stroke="#d7ddd7"/><circle cx="42" cy="42" r="18" fill="#d2aa5c"/><text x="72" y="49" font-size="19" fill="#0d261d">Find</text><text x="28" y="96" font-size="16" fill="#576a5e">Discover high-quality OER</text><text x="28" y="122" font-size="16" fill="#576a5e">and public-domain material.</text>
+    <rect x="272" width="248" height="190" rx="20" fill="#fff" stroke="#d7ddd7"/><circle cx="314" cy="42" r="18" fill="#8f9f8e"/><text x="344" y="49" font-size="19" fill="#0d261d">Evaluate</text><text x="300" y="96" font-size="16" fill="#576a5e">Check quality, copyright</text><text x="300" y="122" font-size="16" fill="#576a5e">and accessibility.</text>
+    <rect x="544" width="248" height="190" rx="20" fill="#0d261d"/><circle cx="586" cy="42" r="18" fill="#d2aa5c"/><text x="616" y="49" font-size="19" fill="#f4f3eb">Integrate</text><text x="572" y="96" font-size="16" fill="#c9d1c8">Align content with learning</text><text x="572" y="122" font-size="16" fill="#c9d1c8">outcomes and learner needs.</text>
+  </g>
+</svg>

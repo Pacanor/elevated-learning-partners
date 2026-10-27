@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title">
+  <title id="title">Accessibility review dashboard preview</title>
+  <rect width="960" height="540" rx="28" fill="#f4f3eb"/>
+  <rect x="40" y="38" width="880" height="464" rx="24" fill="#fff" stroke="#d7ddd7"/>
+  <rect x="40" y="38" width="880" height="66" rx="24" fill="#0d261d"/>
+  <circle cx="83" cy="71" r="8" fill="#d2aa5c"/><circle cx="109" cy="71" r="8" fill="#8f9f8e"/><circle cx="135" cy="71" r="8" fill="#f4f3eb"/>
+  <text x="174" y="79" font-family="Arial" font-size="20" fill="#f4f3eb">Course accessibility review</text>
+  <g transform="translate(86 148)">
+    <circle cx="110" cy="105" r="84" fill="none" stroke="#e3e7e2" stroke-width="20"/>
+    <circle cx="110" cy="105" r="84" fill="none" stroke="#d2aa5c" stroke-width="20" stroke-linecap="round" stroke-dasharray="468 528" transform="rotate(-90 110 105)"/>
+    <text x="110" y="98" text-anchor="middle" font-family="Georgia" font-size="42" fill="#0d261d">89%</text>
+    <text x="110" y="130" text-anchor="middle" font-family="Arial" font-size="15" fill="#576a5e">accessible</text>
+  </g>
+  <g font-family="Arial" font-size="18" fill="#0d261d">
+    <rect x="355" y="154" width="486" height="68" rx="16" fill="#edf0ec"/><circle cx="394" cy="188" r="14" fill="#8f9f8e"/><text x="426" y="195">Heading structure and reading order</text>
+    <rect x="355" y="240" width="486" height="68" rx="16" fill="#edf0ec"/><circle cx="394" cy="274" r="14" fill="#d2aa5c"/><text x="426" y="281">Alternative text and media support</text>
+    <rect x="355" y="326" width="486" height="68" rx="16" fill="#edf0ec"/><circle cx="394" cy="360" r="14" fill="#0d261d"/><text x="426" y="367">Keyboard and screen-reader testing</text>
+  </g>
+</svg>

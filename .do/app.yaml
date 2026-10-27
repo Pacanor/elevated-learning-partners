@@ -1,0 +1,13 @@
+name: elevated-learning-partners
+region: nyc
+static_sites:
+  - name: www
+    github:
+      repo: Pacanor/elevated-learning-partners
+      branch: main
+      deploy_on_push: true
+    build_command: npm ci && npm run build
+    output_dir: dist
+    catchall_document: index.html
+    routes:
+      - path: /

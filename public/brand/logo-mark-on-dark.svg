@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 132" role="img" aria-labelledby="title">
+  <title id="title">ElevatED Learning Partners mark</title>
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#b88b36"/>
+      <stop offset="0.5" stop-color="#d2aa5c"/>
+      <stop offset="1" stop-color="#f0d18a"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#gold)" d="M24 10h76v24H50v21h39v20H50v23h52v24H24z"/>
+  <path fill="#8f9f8e" d="M21 91c7-30 25-48 65-54-1 25-19 45-58 57z"/>
+  <path fill="#f4f3eb" d="M16 122c10-32 35-47 88-47-7 31-34 45-88 47z"/>
+</svg>

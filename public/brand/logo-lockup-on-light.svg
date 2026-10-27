@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 150" role="img" aria-labelledby="title">
+  <title id="title">ElevatED Learning Partners</title>
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#b88b36"/><stop offset=".52" stop-color="#d2aa5c"/><stop offset="1" stop-color="#f0d18a"/></linearGradient>
+  </defs>
+  <g transform="translate(0 2) scale(.88)">
+    <path fill="url(#gold)" d="M24 10h76v24H50v21h39v20H50v23h52v24H24z"/>
+    <path fill="#8f9f8e" d="M21 91c7-30 25-48 65-54-1 25-19 45-58 57z"/>
+    <path fill="#0d261d" d="M16 122c10-32 35-47 88-47-7 31-34 45-88 47z"/>
+  </g>
+  <text x="92" y="91" font-family="Georgia, 'Times New Roman', serif" font-size="78" fill="#0d261d" letter-spacing="-2">levat</text>
+  <text x="300" y="91" font-family="Georgia, 'Times New Roman', serif" font-size="78" fill="url(#gold)" letter-spacing="-2">ED</text>
+  <text x="96" y="127" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334533" letter-spacing="8">LEARNING PARTNERS</text>
+</svg>
