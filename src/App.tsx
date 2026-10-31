@@ -383,12 +383,13 @@ function App() {
 
       <header className={`site-header${scrolled ? " is-scrolled" : " is-top"}`}>
         <a className="logo-link" href="#top" aria-label="ElevatED Learning Partners, back to top">
-          <BrandLockup variant="hero" />
+          <BrandLockup variant="nav" />
         </a>
 
         <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Primary navigation">
           <a href="#products" onClick={() => setMenuOpen(false)}>Products</a>
           <a href="#services" onClick={() => setMenuOpen(false)}>Expertise</a>
+          <a href="#credentials" onClick={() => setMenuOpen(false)}>Credentials</a>
           <a href="#portfolio" onClick={() => setMenuOpen(false)}>Portfolio</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#contact" className="nav-contact" onClick={() => setMenuOpen(false)}>Start a conversation</a>
@@ -449,7 +450,7 @@ function App() {
 
             <div className="hero-visual reveal is-visible" aria-hidden="true">
               <div className="hero-mark-wrap">
-                <img src="/brand/logo-mark.png" alt="" />
+                <BrandLockup variant="hero" />
               </div>
             </div>
           </div>
@@ -498,13 +499,14 @@ function App() {
               <div>
                 <p className="eyebrow">Core products</p>
                 <h2>
-                  Two smarter systems.
+                  Three smarter systems.
                   <br />
                   <span className="display-accent">Built around people.</span>
                 </h2>
               </div>
               <p>
-                Practical automation that removes friction, improves response quality and gives teams more time for the work that needs a human touch.
+                Practical automation and quality tools that remove friction, improve response quality
+                and give teams more time for the work that needs a human touch.
               </p>
             </div>
 
@@ -555,6 +557,135 @@ function App() {
                 />
               </div>
             </article>
+
+            <article className="product-feature product-feature-dark reveal" id="product-benchmark">
+              <div className="product-copy">
+                <div className="product-index">03 <span>Higher education</span></div>
+                <h3>Course Quality<br />Benchmark Tool</h3>
+                <p>
+                  An AI-powered platform that scores online courses against a consistent rubric,
+                  tracks improvement over time, and gives leadership a clear benchmarking view across every department.
+                </p>
+                <ul className="check-list">
+                  <li><CircleCheck size={18} /> Rubric-based course quality review</li>
+                  <li><CircleCheck size={18} /> Leadership dashboard across departments</li>
+                  <li><CircleCheck size={18} /> Institution-isolated, private data</li>
+                </ul>
+                <div className="enquire-block enquire-light">
+                  <p className="enquire-prompt">Ready to benchmark course quality at scale?</p>
+                  <div className="button-row">
+                    <a
+                      className="button button-gold"
+                      href="https://platform.elevatedlearningpartners.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Explore the platform <ArrowRight size={17} />
+                    </a>
+                    <a className="button button-outline" href={enquireEmail("the Course Quality Benchmark Tool")}>
+                      <Mail size={17} /> Email us
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="product-media">
+                <div className="media-glow" aria-hidden="true" />
+                <img src="/portfolio/slide-14.png" alt="Course Quality Benchmark Tool interface preview" />
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="products-compact section" id="products-compact" aria-label="Products at a glance">
+          <div className="container">
+            <div className="section-heading reveal">
+              <div>
+                <p className="eyebrow">Products at a glance</p>
+                <h2>
+                  The same three systems.
+                  <br />
+                  <span className="display-accent">A more compact view.</span>
+                </h2>
+              </div>
+              <p>
+                An alternate layout for reviewing all three focus products side by side with the carousel work that follows.
+                Choose the presentation that fits best.
+              </p>
+            </div>
+            <div className="product-compact-grid">
+              {[
+                {
+                  number: "01",
+                  audience: "Higher education",
+                  title: "Faculty Digital Support Hub",
+                  summary: "Intelligent faculty support routing.",
+                  detail:
+                    "Every request is classified, routed and logged so the right specialist can respond sooner, with searchable quality records across teams.",
+                  points: [
+                    "95%+ classification accuracy",
+                    "Instant specialist routing",
+                    "Built-in quality analytics",
+                  ],
+                  href: "#product-hub",
+                  cta: "See full feature",
+                },
+                {
+                  number: "02",
+                  audience: "Growing businesses",
+                  title: "Small Business AI Automation",
+                  summary: "Client communication on autopilot.",
+                  detail:
+                    "Reminders, scheduling and progress tracking work in the background, returning hours each week to the people doing the work.",
+                  points: [
+                    "Responses in under two minutes",
+                    "Automated reminders",
+                    "Live progress records",
+                  ],
+                  href: "#product-automation",
+                  cta: "See full feature",
+                },
+                {
+                  number: "03",
+                  audience: "Higher education",
+                  title: "Course Quality Benchmark Tool",
+                  summary: "Rubric scoring for online courses.",
+                  detail:
+                    "Score courses against a consistent rubric, track improvement over time, and give leadership a clear view across departments.",
+                  points: [
+                    "Rubric-based review",
+                    "Leadership dashboard",
+                    "Institution-isolated data",
+                  ],
+                  href: "https://platform.elevatedlearningpartners.com/",
+                  cta: "Explore the platform",
+                  external: true,
+                },
+              ].map((product) => (
+                <article className="product-compact-card reveal" key={product.number}>
+                  <span className="product-compact-number">{product.number}</span>
+                  <small>{product.audience}</small>
+                  <h3>{product.title}</h3>
+                  <p className="product-compact-summary">{product.summary}</p>
+                  <div className="product-compact-expand">
+                    <p>{product.detail}</p>
+                    <ul>
+                      {product.points.map((point) => (
+                        <li key={point}>
+                          <CircleCheck size={16} /> {point}
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      className="product-compact-link"
+                      href={product.href}
+                      {...(product.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                    >
+                      {product.cta} <MoveRight size={16} />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -589,6 +720,65 @@ function App() {
                   </article>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        <section className="credentials section" id="credentials">
+          <div className="container">
+            <div className="section-heading reveal">
+              <div>
+                <p className="eyebrow">Credentials</p>
+                <h2>
+                  Independently recognised.
+                  <br />
+                  <span className="display-accent">Practically applied.</span>
+                </h2>
+              </div>
+              <p>
+                Course-level CPD accreditation and shared AI practice credentials that signal quality
+                without claiming organisational certification.
+              </p>
+            </div>
+            <div className="credential-grid">
+              <article className="credential-card reveal">
+                <img
+                  className="credential-mark"
+                  src="/brand/credentials/cpd-certified.png"
+                  alt="CPD Certified mark from The CPD Certification Service"
+                  width={120}
+                  height={120}
+                />
+                <div>
+                  <p className="credential-label">Course credential</p>
+                  <h3>CPD-accredited courses</h3>
+                  <p>
+                    Selected ElevatED courses are independently reviewed against continuing professional
+                    development standards. CPD accreditation applies to the named learning activity,
+                    not to the organisation as a whole, so learners and partners can trust the hours,
+                    structure and educational value of that specific course. Formal wording from Hannah
+                    will replace this placeholder once confirmed.
+                  </p>
+                </div>
+              </article>
+              <article className="credential-card reveal">
+                <img
+                  className="credential-mark"
+                  src="/brand/credentials/google-ai-essentials.png"
+                  alt="Google AI Essentials certificate badge"
+                  width={120}
+                  height={120}
+                />
+                <div>
+                  <p className="credential-label">Practice credential</p>
+                  <h3>Google AI Essentials</h3>
+                  <p>
+                    Eliza and Hannah share Google AI Essentials certification, strengthening how they
+                    design, review and automate learning work. It reflects one shared practice standard
+                    across instructional design, analytics and AI-supported systems for the partnership.
+                  </p>
+                </div>
+              </article>
             </div>
           </div>
         </section>
@@ -636,6 +826,7 @@ function App() {
                   <img src={project.cover} alt="" loading="lazy" />
                   <span className="project-overlay" />
                   <span className="project-number">{String((index % portfolioProjects.length) + 1).padStart(2, "0")}</span>
+                  {project.cpd && <span className="project-cpd">CPD</span>}
                   <span className="project-content">
                     <small>{project.category}</small>
                     <strong>{project.shortTitle}</strong>
@@ -783,13 +974,13 @@ function App() {
       <footer className="footer">
         <div className="container footer-grid">
           <div className="footer-brand">
-            <BrandLockup variant="hero" />
-            <p className="footer-motto">Inclusive by design.</p>
+            <BrandLockup variant="footer" />
           </div>
           <p>Purposeful learning design. Intelligent systems. Measurable progress.</p>
           <div className="footer-links">
             <a href="#products">Products</a>
             <a href="#services">Expertise</a>
+            <a href="#credentials">Credentials</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
           </div>

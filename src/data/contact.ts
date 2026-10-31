@@ -1,11 +1,11 @@
-export const CONTACT_EMAIL = "hello@elevatedlearningpartners.com";
+export const CONTACT_EMAIL = "team@elevatedlearningpartners.com";
 export const CONTACT_DOMAIN = "elevatedlearningpartners.com";
 
 export const WHATSAPP_NUMBER = "14439399177";
 
 export const DP_TECH_URL = "https://www.digitalpolaroid.tech/";
 
-/** Calendly event URL — syncs live availability from Google/Outlook calendars. Replace with your team event link. */
+/** Calendly event URL. Syncs live availability from Google/Outlook calendars. Replace with your team event link. */
 export const CALENDLY_URL = "https://calendly.com/elevatedlearningpartners/intro";
 
 export const createEmailLink = (subject: string, body: string, email = CONTACT_EMAIL) =>
