@@ -38,6 +38,8 @@ export const leaders = [
     email: `eliza@${CONTACT_DOMAIN}`,
     linkedin: "https://www.linkedin.com/in/elizaosaekwapong",
     whatsapp: "14439399177",
+    qualification:
+      "Certified across Quality Matters course review and AI workflow automation, which sharpens her course reviews and the faculty support systems she designs.",
   },
   {
     name: "Hannah Shelton, M.Ed.",
@@ -50,5 +52,7 @@ export const leaders = [
     email: `hannah@${CONTACT_DOMAIN}`,
     linkedin: "https://www.linkedin.com/in/hannah-shelton-learning",
     whatsapp: "14432209719",
+    qualification:
+      "Certified across Quality Matters course review and applied AI, including Johns Hopkins and COABE, which sharpens the courses and faculty learning she designs.",
   },
 ] as const;

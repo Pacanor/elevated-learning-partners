@@ -1,7 +1,6 @@
 import {
   ArrowRight,
   BarChart3,
-  Bot,
   BrainCircuit,
   Calendar,
   Check,
@@ -79,42 +78,100 @@ const heroImages = [
   "/brand/hero/05.jpg",
 ];
 
-const services = [
+const offerings = [
   {
     icon: GraduationCap,
     number: "01",
-    title: "Instructional design",
-    copy: "Inclusive courses and learning experiences shaped around outcomes, context and real learner needs.",
-  },
-  {
-    icon: BarChart3,
-    number: "02",
-    title: "Learning analytics",
-    copy: "Clear signals from learning data that help teams act earlier and improve what happens next.",
-  },
-  {
-    icon: Users,
-    number: "03",
-    title: "Faculty development",
-    copy: "Practical workshops and coaching that build confidence in digital, blended and AI-supported teaching.",
+    title: "Curriculum design & development",
+    copy: "Custom, standards-aligned curricula for adult education, college and career readiness, and K-12. With Academy of Hope, that included a new Maryland adult curriculum and a modernised Washington, DC curriculum.",
   },
   {
     icon: ShieldCheck,
-    number: "04",
-    title: "Quality assurance",
-    copy: "Structured reviews for accessibility, quality standards, accreditation readiness and continuous improvement.",
+    number: "02",
+    title: "Curriculum evaluation & modernization",
+    copy: "Reviews and redesigns that bring existing curricula up to current standards, research-based practice, and the learners they now serve.",
   },
   {
     icon: BrainCircuit,
-    number: "05",
-    title: "Learning technology",
-    copy: "Thoughtful integration of authoring tools, LMS platforms and interactive media without unnecessary complexity.",
+    number: "03",
+    title: "Instructional design & course development",
+    copy: "Engaging courses, lessons, assessments, and learning resources for classroom, online, and blended settings.",
   },
   {
-    icon: Bot,
-    number: "06",
-    title: "AI and automation",
-    copy: "Connected systems that simplify workflows, surface insights and return time to the people doing the work.",
+    icon: Users,
+    number: "04",
+    title: "Professional training & faculty development",
+    copy: "Practical training that strengthens skills, builds capability, and supports professional growth for faculty and teams.",
+  },
+  {
+    icon: BarChart3,
+    number: "05",
+    title: "Learning analytics & quality assurance",
+    copy: "Data-informed evaluation that shows what is working, where quality can rise, and how instruction can improve.",
+  },
+];
+
+const innovations = [
+  {
+    number: "01",
+    id: "product-hub",
+    tone: "forest",
+    audience: "Faculty support",
+    title: "Faculty Digital Support Hub",
+    summary: "Intelligent support for faculty requests.",
+    detail:
+      "Requests are classified, routed, and recorded so the right specialist can respond sooner, with a searchable record for quality improvement.",
+    points: ["Specialist routing", "Searchable request records", "Quality review built in"],
+    prompt: "A good place to start is how a faculty request moves through your team today.",
+    cta: "Talk through a workflow",
+    href: enquireEmail("Faculty Digital Support Hub"),
+  },
+  {
+    number: "02",
+    id: "product-benchmark",
+    tone: "gold",
+    audience: "Higher education",
+    title: "Course Quality Benchmark Tool",
+    summary: "Course quality, made visible across a catalog.",
+    detail:
+      "One review describes a course. Many reviews, mapped to eight quality standards, show where an institution is strong and where faculty development should go next.",
+    points: [
+      "Catalog patterns, not just single courses",
+      "AI-assisted review, human-certified",
+      "Accessibility assessed against WCAG 2.1 AA",
+    ],
+    prompt: "See a catalog against eight quality standards, then decide where faculty development should go next.",
+    cta: "Explore the platform",
+    href: "https://platform.elevatedlearningpartners.com/",
+    external: true,
+  },
+  {
+    number: "03",
+    id: "product-automation",
+    tone: "mint",
+    audience: "Workflows",
+    title: "AI & automation solutions",
+    summary: "Technology that gives time back to the work.",
+    detail:
+      "Connected systems for communication, reminders, scheduling, and progress tracking, so teams spend less time on repeat tasks.",
+    points: ["Faster client responses", "Automated reminders", "Live progress records"],
+    prompt: "Bring one task your team repeats every week. We can show what is ready to run on its own.",
+    cta: "Tell us what to automate",
+    href: enquireEmail("AI and automation"),
+  },
+  {
+    number: "04",
+    id: "product-technology",
+    tone: "sage",
+    audience: "Teaching and learning",
+    title: "Learning technology integration",
+    summary: "Digital tools chosen for the learning, not the other way around.",
+    detail:
+      "Authoring tools, LMS platforms, and interactive media, integrated with care and without extra complexity.",
+    points: ["LMS and authoring fit", "Interactive media", "Practical for the team who will use it"],
+    prompt: "Bring the tools you already have. We will help you keep what serves the learning.",
+    cta: "Ask which tools fit",
+    href: enquireEmail("Learning technology integration"),
   },
 ];
 
@@ -123,18 +180,18 @@ const audiences = [
     id: "higher-ed",
     number: "01",
     label: "Higher education",
-    copy: "Faculty support systems, course transformation, accessibility reviews and learning analytics for universities and colleges.",
-    href: "#product-hub",
-    cta: "See the Support Hub",
+    copy: "Curriculum, course design, faculty development, and quality reviews for universities and colleges.",
+    href: "#offerings",
+    cta: "Explore our offerings",
     tone: "forest",
   },
   {
     id: "organisations",
     number: "02",
     label: "Organisations",
-    copy: "Capability-building programmes, quality assurance and instructional design that transfer lasting skill into your teams.",
-    href: "#services",
-    cta: "Explore our expertise",
+    copy: "Training, curriculum, and instructional design that transfer lasting skill into your teams.",
+    href: "#offerings",
+    cta: "Explore our offerings",
     tone: "gold",
   },
   {
@@ -142,8 +199,8 @@ const audiences = [
     number: "03",
     label: "Growing businesses",
     copy: "AI automation for client communication, scheduling and progress tracking that returns hours to the people doing the work.",
-    href: "#product-automation",
-    cta: "Explore business automation",
+    href: "#innovation",
+    cta: "See how technology helps",
     tone: "mint",
   },
 ] as const;
@@ -230,6 +287,66 @@ function App() {
   const closeTimerRef = useRef<number | null>(null);
 
   useReveal([selectedProject, modalPhase]);
+
+  useEffect(() => {
+    let frame = 0;
+    const scrollToTarget = (target: HTMLElement) => {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const margin = Number.parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+      const end = target.getBoundingClientRect().top + window.scrollY - margin;
+      if (reduce) {
+        window.scrollTo(0, end);
+        return;
+      }
+      const start = window.scrollY;
+      const distance = end - start;
+      if (Math.abs(distance) < 2) return;
+      const duration = Math.min(1100, Math.max(520, Math.abs(distance) * 0.28));
+      const started = performance.now();
+      const root = document.documentElement;
+      root.style.scrollBehavior = "auto";
+      const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - ((-2 * t + 2) ** 2) / 2);
+      const step = () => {
+        const t = Math.min(1, (performance.now() - started) / duration);
+        window.scrollTo(0, start + distance * ease(t));
+        if (t < 1) {
+          frame = window.setTimeout(step, 16);
+          return;
+        }
+        root.style.scrollBehavior = "";
+      };
+      window.clearTimeout(frame);
+      frame = window.setTimeout(step, 16);
+    };
+    const onClick = (event: globalThis.MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+      const link = (event.target as Element | null)?.closest("a[href^='#']");
+      if (!(link instanceof HTMLAnchorElement)) return;
+      const href = link.getAttribute("href");
+      if (!href || href === "#") return;
+      const target = document.querySelector(href);
+      if (!(target instanceof HTMLElement)) return;
+      event.preventDefault();
+      scrollToTarget(target);
+      history.pushState(null, "", href);
+      setMenuOpen(false);
+    };
+    document.addEventListener("click", onClick);
+    return () => {
+      window.clearTimeout(frame);
+      document.documentElement.style.scrollBehavior = "";
+      document.removeEventListener("click", onClick);
+    };
+  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -387,8 +504,8 @@ function App() {
         </a>
 
         <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Primary navigation">
-          <a href="#products" onClick={() => setMenuOpen(false)}>Products</a>
-          <a href="#services" onClick={() => setMenuOpen(false)}>Expertise</a>
+          <a href="#offerings" onClick={() => setMenuOpen(false)}>Offerings</a>
+          <a href="#innovation" onClick={() => setMenuOpen(false)}>Innovation & Technology</a>
           <a href="#credentials" onClick={() => setMenuOpen(false)}>Credentials</a>
           <a href="#portfolio" onClick={() => setMenuOpen(false)}>Portfolio</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
@@ -438,7 +555,7 @@ function App() {
                 <span className="display-accent">Measurable progress.</span>
               </h1>
               <p className="hero-intro">
-                Inclusive learning systems and intelligent workflows for organisations ready to make a lasting difference.
+                Learning design, professional training, and the technology that helps both last.
               </p>
               <div className="button-row">
                 <button className="button button-primary" type="button" onClick={openCalendly}>
@@ -493,229 +610,32 @@ function App() {
           </div>
         </section>
 
-        <section className="products section" id="products">
-          <div className="container">
-            <div className="section-heading reveal">
-              <div>
-                <p className="eyebrow">Core products</p>
-                <h2>
-                  Three smarter systems.
-                  <br />
-                  <span className="display-accent">Built around people.</span>
-                </h2>
-              </div>
-              <p>
-                Practical automation and quality tools that remove friction, improve response quality
-                and give teams more time for the work that needs a human touch.
-              </p>
-            </div>
-
-            <article className="product-feature product-feature-dark reveal" id="product-hub">
-              <div className="product-copy">
-                <div className="product-index">01 <span>Higher education</span></div>
-                <h3>Faculty Digital<br />Support Hub</h3>
-                <p>
-                  An intelligent front door for faculty support. Every request is classified, routed and logged automatically so the right specialist can respond sooner.
-                </p>
-                <ul className="check-list">
-                  <li><CircleCheck size={18} /> 95%+ request classification accuracy</li>
-                  <li><CircleCheck size={18} /> Instant routing across specialist teams</li>
-                  <li><CircleCheck size={18} /> Built-in quality review and analytics</li>
-                </ul>
-                <EnquireActions
-                  item="the Faculty Digital Support Hub"
-                  prompt="Need a smarter front door for faculty support?"
-                  tone="light"
-                />
-              </div>
-              <div className="product-media">
-                <div className="media-glow" aria-hidden="true" />
-                <img src="/portfolio/slide-09.png" alt="Faculty Digital Support Hub interface preview" />
-              </div>
-            </article>
-
-            <article className="product-feature product-feature-light reveal" id="product-automation">
-              <div className="product-media">
-                <div className="media-glow" aria-hidden="true" />
-                <img src="/portfolio/slide-11.png" alt="Small business automation interface preview" />
-              </div>
-              <div className="product-copy">
-                <div className="product-index">02 <span>Growing businesses</span></div>
-                <h3>Small Business<br />AI Automation</h3>
-                <p>
-                  A connected assistant for client communication, reminders, scheduling and progress tracking, all working in the background without adding another task to the day.
-                </p>
-                <ul className="check-list">
-                  <li><CircleCheck size={18} /> Personalised responses in under two minutes</li>
-                  <li><CircleCheck size={18} /> Automated reminders and scheduling</li>
-                  <li><CircleCheck size={18} /> Live progress records for every client</li>
-                </ul>
-                <EnquireActions
-                  item="Small Business AI Automation"
-                  prompt="Ready to give your team hours back each week?"
-                  tone="dark"
-                />
-              </div>
-            </article>
-
-            <article className="product-feature product-feature-dark reveal" id="product-benchmark">
-              <div className="product-copy">
-                <div className="product-index">03 <span>Higher education</span></div>
-                <h3>Course Quality<br />Benchmark Tool</h3>
-                <p>
-                  An AI-powered platform that scores online courses against a consistent rubric,
-                  tracks improvement over time, and gives leadership a clear benchmarking view across every department.
-                </p>
-                <ul className="check-list">
-                  <li><CircleCheck size={18} /> Rubric-based course quality review</li>
-                  <li><CircleCheck size={18} /> Leadership dashboard across departments</li>
-                  <li><CircleCheck size={18} /> Institution-isolated, private data</li>
-                </ul>
-                <div className="enquire-block enquire-light">
-                  <p className="enquire-prompt">Ready to benchmark course quality at scale?</p>
-                  <div className="button-row">
-                    <a
-                      className="button button-gold"
-                      href="https://platform.elevatedlearningpartners.com/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Explore the platform <ArrowRight size={17} />
-                    </a>
-                    <a className="button button-outline" href={enquireEmail("the Course Quality Benchmark Tool")}>
-                      <Mail size={17} /> Email us
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="product-media">
-                <div className="media-glow" aria-hidden="true" />
-                <img src="/portfolio/slide-14.png" alt="Course Quality Benchmark Tool interface preview" />
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section className="products-compact section" id="products-compact" aria-label="Products at a glance">
-          <div className="container">
-            <div className="section-heading reveal">
-              <div>
-                <p className="eyebrow">Products at a glance</p>
-                <h2>
-                  The same three systems.
-                  <br />
-                  <span className="display-accent">A more compact view.</span>
-                </h2>
-              </div>
-              <p>
-                An alternate layout for reviewing all three focus products side by side with the carousel work that follows.
-                Choose the presentation that fits best.
-              </p>
-            </div>
-            <div className="product-compact-grid">
-              {[
-                {
-                  number: "01",
-                  audience: "Higher education",
-                  title: "Faculty Digital Support Hub",
-                  summary: "Intelligent faculty support routing.",
-                  detail:
-                    "Every request is classified, routed and logged so the right specialist can respond sooner, with searchable quality records across teams.",
-                  points: [
-                    "95%+ classification accuracy",
-                    "Instant specialist routing",
-                    "Built-in quality analytics",
-                  ],
-                  href: "#product-hub",
-                  cta: "See full feature",
-                },
-                {
-                  number: "02",
-                  audience: "Growing businesses",
-                  title: "Small Business AI Automation",
-                  summary: "Client communication on autopilot.",
-                  detail:
-                    "Reminders, scheduling and progress tracking work in the background, returning hours each week to the people doing the work.",
-                  points: [
-                    "Responses in under two minutes",
-                    "Automated reminders",
-                    "Live progress records",
-                  ],
-                  href: "#product-automation",
-                  cta: "See full feature",
-                },
-                {
-                  number: "03",
-                  audience: "Higher education",
-                  title: "Course Quality Benchmark Tool",
-                  summary: "Rubric scoring for online courses.",
-                  detail:
-                    "Score courses against a consistent rubric, track improvement over time, and give leadership a clear view across departments.",
-                  points: [
-                    "Rubric-based review",
-                    "Leadership dashboard",
-                    "Institution-isolated data",
-                  ],
-                  href: "https://platform.elevatedlearningpartners.com/",
-                  cta: "Explore the platform",
-                  external: true,
-                },
-              ].map((product) => (
-                <article className="product-compact-card reveal" key={product.number}>
-                  <span className="product-compact-number">{product.number}</span>
-                  <small>{product.audience}</small>
-                  <h3>{product.title}</h3>
-                  <p className="product-compact-summary">{product.summary}</p>
-                  <div className="product-compact-expand">
-                    <p>{product.detail}</p>
-                    <ul>
-                      {product.points.map((point) => (
-                        <li key={point}>
-                          <CircleCheck size={16} /> {point}
-                        </li>
-                      ))}
-                    </ul>
-                    <a
-                      className="product-compact-link"
-                      href={product.href}
-                      {...(product.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                    >
-                      {product.cta} <MoveRight size={16} />
-                    </a>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="services section" id="services">
+        <section className="services section" id="offerings">
           <div className="container">
             <div className="section-heading services-heading reveal">
               <div>
-                <p className="eyebrow">Our expertise</p>
+                <p className="eyebrow">Our offerings</p>
                 <h2>
-                  From learning challenge
+                  Thoughtfully designed learning.
                   <br />
-                  to{" "}
-                  <span className="display-accent is-inline">lasting capability.</span>
+                  <span className="display-accent">Lasting impact.</span>
                 </h2>
               </div>
               <p>
-                Instructional expertise, accessible design, analytics and technology
-                in one connected practice.
+                Curriculum, course design, and professional training for organisations
+                that want learning to transfer into practice.
               </p>
             </div>
             <div className="service-list">
-              {services.map((service) => {
-                const Icon = service.icon;
+              {offerings.map((offering) => {
+                const Icon = offering.icon;
                 return (
-                  <article className="service-row reveal" key={service.title}>
-                    <span className="service-number">{service.number}</span>
+                  <article className="service-row reveal" key={offering.title}>
+                    <span className="service-number">{offering.number}</span>
                     <div className="service-icon" aria-hidden="true"><Icon size={22} /></div>
                     <div className="service-body">
-                      <h3>{service.title}</h3>
-                      <p>{service.copy}</p>
+                      <h3>{offering.title}</h3>
+                      <p>{offering.copy}</p>
                     </div>
                   </article>
                 );
@@ -724,62 +644,92 @@ function App() {
           </div>
         </section>
 
-        <section className="credentials section" id="credentials">
+        <section className="products-compact section" id="innovation" aria-label="Innovation and technology">
           <div className="container">
             <div className="section-heading reveal">
               <div>
+                <p className="eyebrow">Innovation & technology</p>
+                <h2>
+                  Innovative solutions that enhance
+                  <br />
+                  <span className="display-accent">learning and performance.</span>
+                </h2>
+              </div>
+              <p>
+                Technology in service of the learning: faculty support, course quality,
+                automation, and the tools a team will actually use.
+              </p>
+            </div>
+            <div className="product-compact-grid innovation-grid">
+              {innovations.map((item) => (
+                <article className={`product-compact-card innovation-${item.tone} reveal`} id={item.id} key={item.id}>
+                  <span className="product-compact-number">{item.number}</span>
+                  <small>{item.audience}</small>
+                  <h3>{item.title}</h3>
+                  <p className="product-compact-summary">{item.summary}</p>
+                  <div className="product-compact-expand">
+                    <p>{item.detail}</p>
+                    <ul>
+                      {item.points.map((point) => (
+                        <li key={point}>
+                          <CircleCheck size={16} /> {point}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="product-compact-cta">
+                      <p className="product-compact-prompt">{item.prompt}</p>
+                      <a
+                        className="button button-gold product-compact-action"
+                        href={item.href}
+                        {...("external" in item && item.external
+                          ? { target: "_blank", rel: "noreferrer" }
+                          : {})}
+                      >
+                        {item.cta}
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="credentials section" id="credentials">
+          <div className="container">
+            <article className="credential-band reveal">
+              <div className="credential-seal">
+                <img
+                  className="credential-mark credential-mark-light"
+                  src="/brand/credentials/cpd-certified.png"
+                  alt="CPD Certified mark from The CPD Certification Service"
+                  width={132}
+                  height={120}
+                />
+                <img
+                  className="credential-mark credential-mark-dark"
+                  src="/brand/credentials/cpd-certified-on-dark.png"
+                  alt=""
+                  aria-hidden="true"
+                  width={132}
+                  height={120}
+                />
+              </div>
+              <div className="credential-copy">
                 <p className="eyebrow">Credentials</p>
                 <h2>
                   Independently recognised.
                   <br />
                   <span className="display-accent">Practically applied.</span>
                 </h2>
+                <p>
+                  Our CPD-certified courses reflect a commitment to excellence in design, development,
+                  and delivery. Continuing professional development helps people expand what they know,
+                  strengthen their skills, and stay current. The courses are practical and relevant,
+                  so participants leave with something they can use. The aim is learning that lasts.
+                </p>
               </div>
-              <p>
-                Course-level CPD accreditation and shared AI practice credentials that signal quality
-                without claiming organisational certification.
-              </p>
-            </div>
-            <div className="credential-grid">
-              <article className="credential-card reveal">
-                <img
-                  className="credential-mark"
-                  src="/brand/credentials/cpd-certified.png"
-                  alt="CPD Certified mark from The CPD Certification Service"
-                  width={120}
-                  height={120}
-                />
-                <div>
-                  <p className="credential-label">Course credential</p>
-                  <h3>CPD-accredited courses</h3>
-                  <p>
-                    Selected ElevatED courses are independently reviewed against continuing professional
-                    development standards. CPD accreditation applies to the named learning activity,
-                    not to the organisation as a whole, so learners and partners can trust the hours,
-                    structure and educational value of that specific course. Formal wording from Hannah
-                    will replace this placeholder once confirmed.
-                  </p>
-                </div>
-              </article>
-              <article className="credential-card reveal">
-                <img
-                  className="credential-mark"
-                  src="/brand/credentials/google-ai-essentials.png"
-                  alt="Google AI Essentials certificate badge"
-                  width={120}
-                  height={120}
-                />
-                <div>
-                  <p className="credential-label">Practice credential</p>
-                  <h3>Google AI Essentials</h3>
-                  <p>
-                    Eliza and Hannah share Google AI Essentials certification, strengthening how they
-                    design, review and automate learning work. It reflects one shared practice standard
-                    across instructional design, analytics and AI-supported systems for the partnership.
-                  </p>
-                </div>
-              </article>
-            </div>
+            </article>
           </div>
         </section>
 
@@ -825,7 +775,6 @@ function App() {
                 >
                   <img src={project.cover} alt="" loading="lazy" />
                   <span className="project-overlay" />
-                  <span className="project-number">{String((index % portfolioProjects.length) + 1).padStart(2, "0")}</span>
                   {project.cpd && <span className="project-cpd">CPD</span>}
                   <span className="project-content">
                     <small>{project.category}</small>
@@ -854,9 +803,8 @@ function App() {
                 </span>
               </h2>
               <p className="about-lead">
-                ElevatED Learning Partners is a women-led instructional design and
-                learning analytics consultancy with reach across the Arab Gulf, Africa,
-                Europe and the Americas.
+                ElevatED Learning Partners is a women-led learning and development
+                partnership, with reach across the Arab Gulf, Africa, Europe and the Americas.
               </p>
               <p>
                 Our work brings together decades of higher education, corporate learning
@@ -873,9 +821,10 @@ function App() {
                     <div className="person-overlay">
                       <div className="person-caption">
                         <h3>{leader.name}</h3>
-                        <p>{leader.role}</p>
+                        <p className="person-role">{leader.role}</p>
                       </div>
                       <p className="person-bio">{leader.bio}</p>
+                      <p className="person-qualification">{leader.qualification}</p>
                       <div className="person-links">
                         <a href={leader.linkedin} target="_blank" rel="noreferrer" aria-label={`${leader.shortName} on LinkedIn`}>
                           <Linkedin size={16} />
@@ -976,10 +925,10 @@ function App() {
           <div className="footer-brand">
             <BrandLockup variant="footer" />
           </div>
-          <p>Purposeful learning design. Intelligent systems. Measurable progress.</p>
+          <p>Purposeful learning design. Practical training. Measurable progress.</p>
           <div className="footer-links">
-            <a href="#products">Products</a>
-            <a href="#services">Expertise</a>
+            <a href="#offerings">Offerings</a>
+            <a href="#innovation">Innovation</a>
             <a href="#credentials">Credentials</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
