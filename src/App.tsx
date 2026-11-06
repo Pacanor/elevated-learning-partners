@@ -71,11 +71,12 @@ type ModalOrigin = {
 };
 
 const heroImages = [
-  "/brand/hero/01.jpg",
-  "/brand/hero/02.jpg",
-  "/brand/hero/03.jpg",
-  "/brand/hero/04.jpg",
-  "/brand/hero/05.jpg",
+  "/brand/hero/01.jpg?v=20261106b",
+  "/brand/hero/02.jpg?v=20261106b",
+  "/brand/hero/03.jpg?v=20261106b",
+  "/brand/hero/04.jpg?v=20261106b",
+  "/brand/hero/05.jpg?v=20261106b",
+  "/brand/hero/06.jpg?v=20261106b",
 ];
 
 const offerings = [
