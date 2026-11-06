@@ -83,7 +83,7 @@ const offerings = [
     icon: GraduationCap,
     number: "01",
     title: "Curriculum design & development",
-    copy: "Custom, standards-aligned curricula for adult education, college and career readiness, and K-12. With Academy of Hope, that included a new Maryland adult curriculum and a modernised Washington, DC curriculum.",
+    copy: "Custom, standards-aligned curricula for adult education, college and career readiness, and K-12. With Academy of Hope, that included a new Maryland adult curriculum and a modernized Washington, DC curriculum.",
   },
   {
     icon: ShieldCheck,
@@ -188,7 +188,7 @@ const audiences = [
   {
     id: "organisations",
     number: "02",
-    label: "Organisations",
+    label: "Organizations",
     copy: "Training, curriculum, and instructional design that transfer lasting skill into your teams.",
     href: "#offerings",
     cta: "Explore our offerings",
@@ -506,8 +506,8 @@ function App() {
         <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Primary navigation">
           <a href="#offerings" onClick={() => setMenuOpen(false)}>Offerings</a>
           <a href="#innovation" onClick={() => setMenuOpen(false)}>Innovation & Technology</a>
-          <a href="#credentials" onClick={() => setMenuOpen(false)}>Credentials</a>
           <a href="#portfolio" onClick={() => setMenuOpen(false)}>Portfolio</a>
+          <a href="#credentials" onClick={() => setMenuOpen(false)}>Credentials</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#contact" className="nav-contact" onClick={() => setMenuOpen(false)}>Start a conversation</a>
         </nav>
@@ -622,7 +622,7 @@ function App() {
                 </h2>
               </div>
               <p>
-                Curriculum, course design, and professional training for organisations
+                Curriculum, course design, and professional training for organizations
                 that want learning to transfer into practice.
               </p>
             </div>
@@ -695,44 +695,6 @@ function App() {
           </div>
         </section>
 
-        <section className="credentials section" id="credentials">
-          <div className="container">
-            <article className="credential-band reveal">
-              <div className="credential-seal">
-                <img
-                  className="credential-mark credential-mark-light"
-                  src="/brand/credentials/cpd-certified.png"
-                  alt="CPD Certified mark from The CPD Certification Service"
-                  width={132}
-                  height={120}
-                />
-                <img
-                  className="credential-mark credential-mark-dark"
-                  src="/brand/credentials/cpd-certified-on-dark.png"
-                  alt=""
-                  aria-hidden="true"
-                  width={132}
-                  height={120}
-                />
-              </div>
-              <div className="credential-copy">
-                <p className="eyebrow">Credentials</p>
-                <h2>
-                  Independently recognised.
-                  <br />
-                  <span className="display-accent">Practically applied.</span>
-                </h2>
-                <p>
-                  Our CPD-certified courses reflect a commitment to excellence in design, development,
-                  and delivery. Continuing professional development helps people expand what they know,
-                  strengthen their skills, and stay current. The courses are practical and relevant,
-                  so participants leave with something they can use. The aim is learning that lasts.
-                </p>
-              </div>
-            </article>
-          </div>
-        </section>
-
         <section className="portfolio-section section" id="portfolio">
           <div className="container portfolio-heading reveal">
             <div>
@@ -745,7 +707,7 @@ function App() {
             </div>
             <div className="portfolio-intro">
               <p>
-                Eight projects spanning automation, instructional design,
+                Projects spanning automation, instructional design,
                 accessibility, analytics and faculty development.
               </p>
               <div className="carousel-controls">
@@ -784,6 +746,43 @@ function App() {
                 </button>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="credentials section" id="credentials">
+          <div className="container">
+            <article className="credential-band reveal">
+              <div className="credential-seal">
+                <img
+                  className="credential-mark credential-mark-light"
+                  src="/brand/credentials/cpd-certified.png"
+                  alt="CPD Certified mark from The CPD Certification Service"
+                  width={132}
+                  height={120}
+                />
+                <img
+                  className="credential-mark credential-mark-dark"
+                  src="/brand/credentials/cpd-certified-on-dark.png"
+                  alt=""
+                  aria-hidden="true"
+                  width={132}
+                  height={120}
+                />
+              </div>
+              <div className="credential-copy">
+                <p className="eyebrow">Credentials</p>
+                <h2>
+                  <span className="credential-line">Independently recognized.</span>
+                  <span className="display-accent">Practically applied.</span>
+                </h2>
+                <p>
+                  Our CPD-certified courses reflect a commitment to excellence in design, development,
+                  and delivery. Continuing professional development helps people expand what they know,
+                  strengthen their skills, and stay current. The courses are practical and relevant,
+                  so participants leave with something they can use. The aim is learning that lasts.
+                </p>
+              </div>
+            </article>
           </div>
         </section>
 
@@ -929,8 +928,8 @@ function App() {
           <div className="footer-links">
             <a href="#offerings">Offerings</a>
             <a href="#innovation">Innovation</a>
-            <a href="#credentials">Credentials</a>
             <a href="#portfolio">Portfolio</a>
+            <a href="#credentials">Credentials</a>
             <a href="#contact">Contact</a>
           </div>
         </div>
@@ -1021,7 +1020,7 @@ function App() {
               </div>
               <EnquireActions
                 item={selectedProject.shortTitle}
-                prompt="Want something like this for your organisation?"
+                prompt="Want something like this for your organization?"
                 tone="gold"
               />
             </div>

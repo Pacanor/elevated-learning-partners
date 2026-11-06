@@ -96,7 +96,7 @@ export const portfolioProjects: PortfolioProject[] = [
     category: "Compliance learning",
     client: "US government agency",
     summary:
-      "Scenario-based eLearning that lets employees practise responsible purchase-card decisions in a safe, engaging environment.",
+      "Scenario-based eLearning that lets employees practice responsible purchase-card decisions in a safe, engaging environment.",
     role: "Course architecture, branching simulations, gamification and assessment design.",
     impact: [
       "Stronger compliance knowledge",
@@ -153,7 +153,7 @@ export const portfolioProjects: PortfolioProject[] = [
     category: "Faculty development",
     client: "University faculty",
     summary:
-      "A blended professional development programme on OER, public-domain materials, copyright-aware practice and accessible course design.",
+      "A blended professional development program on OER, public-domain materials, copyright-aware practice and accessible course design.",
     role: "Workshop design, content development, facilitation and practical curation tools.",
     impact: [
       "Stronger copyright awareness",

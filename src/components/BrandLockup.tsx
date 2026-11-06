@@ -4,7 +4,7 @@ type BrandLockupProps = {
 
 const ASSETS = {
   nav: {
-    src: "/brand/lockups/nav-horizontal-on-dark.png",
+    src: "/brand/lockups/nav-approved.png",
     alt: "ElevatED Learning Partners",
   },
   hero: {
