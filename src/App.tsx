@@ -71,44 +71,46 @@ type ModalOrigin = {
 };
 
 const heroImages = [
-  "/brand/hero/01.jpg?v=20261106b",
-  "/brand/hero/02.jpg?v=20261106b",
-  "/brand/hero/03.jpg?v=20261106b",
-  "/brand/hero/04.jpg?v=20261106b",
-  "/brand/hero/05.jpg?v=20261106b",
-  "/brand/hero/06.jpg?v=20261106b",
+  "/brand/hero/01.jpg?v=20261110",
+  "/brand/hero/02.jpg?v=20261110",
+  "/brand/hero/03.jpg?v=20261110",
+  "/brand/hero/04.jpg?v=20261110",
+  "/brand/hero/05.jpg?v=20261110",
+  "/brand/hero/06.jpg?v=20261110",
 ];
+
+const PLATFORM_URL = "https://platform.elevatedlearningpartners.com/";
 
 const offerings = [
   {
     icon: GraduationCap,
     number: "01",
     title: "Curriculum design & development",
-    copy: "Custom, standards-aligned curricula for adult education, college and career readiness, and K-12. With Academy of Hope, that included a new Maryland adult curriculum and a modernized Washington, DC curriculum.",
+    copy: "Custom, standards-aligned curricula designed to meet diverse learner needs, promote accessible and culturally responsive learning, and foster meaningful, lasting learning outcomes. With Academy of Hope, that included a new Maryland adult curriculum and a modernized Washington, DC curriculum.",
   },
   {
     icon: ShieldCheck,
     number: "02",
     title: "Curriculum evaluation & modernization",
-    copy: "Reviews and redesigns that bring existing curricula up to current standards, research-based practice, and the learners they now serve.",
+    copy: "Comprehensive curriculum reviews and redesigns that strengthen educational quality, ensure alignment with global and national standards, promote accessibility and inclusive, culturally responsive learning, and integrate evidence-based instructional practices.",
   },
   {
     icon: BrainCircuit,
     number: "03",
     title: "Instructional design & course development",
-    copy: "Engaging courses, lessons, assessments, and learning resources for classroom, online, and blended settings.",
+    copy: "Engaging courses, lessons, assessments, and learning resources designed for in-person, online, and blended environments, creating meaningful learning experiences that foster lasting understanding, knowledge retention, and real-world application.",
   },
   {
     icon: Users,
     number: "04",
-    title: "Professional training & faculty development",
-    copy: "Practical training that strengthens skills, builds capability, and supports professional growth for faculty and teams.",
+    title: "Educator, professional & workforce development",
+    copy: "Practical, research-informed training that strengthens instructional effectiveness, develops workforce skills, builds professional capacity, and supports continuous improvement.",
   },
   {
     icon: BarChart3,
     number: "05",
-    title: "Learning analytics & quality assurance",
-    copy: "Data-informed evaluation that shows what is working, where quality can rise, and how instruction can improve.",
+    title: "Learning evaluation & quality assurance",
+    copy: "Data-informed evaluation of curricula, instructional practices, and learning outcomes to identify areas for improvement, guide evidence-based decisions, and strengthen educational quality and effectiveness.",
   },
 ];
 
@@ -119,13 +121,19 @@ const innovations = [
     tone: "forest",
     audience: "Faculty support",
     title: "Faculty Digital Support Hub",
-    summary: "Intelligent support for faculty requests.",
+    summary: "Smarter support for educators and instructional teams.",
     detail:
-      "Requests are classified, routed, and recorded so the right specialist can respond sooner, with a searchable record for quality improvement.",
-    points: ["Specialist routing", "Searchable request records", "Quality review built in"],
+      "A centralized solution that organizes, routes, and tracks faculty support requests, improving response times, accountability, and continuous improvement.",
+    points: [
+      "Intelligent request routing",
+      "Centralized, searchable records",
+      "Insights for continuous improvement",
+    ],
     prompt: "A good place to start is how a faculty request moves through your team today.",
-    cta: "Talk through a workflow",
+    cta: "Email us about faculty support",
     href: enquireEmail("Faculty Digital Support Hub"),
+    secondaryCta: "WhatsApp",
+    secondaryHref: enquireWhatsApp("Faculty Digital Support Hub") ?? undefined,
   },
   {
     number: "02",
@@ -133,77 +141,119 @@ const innovations = [
     tone: "gold",
     audience: "Higher education",
     title: "Course Quality Benchmark Tool",
-    summary: "Course quality, made visible across a catalog.",
+    summary: "Transform course reviews into actionable insights.",
     detail:
-      "One review describes a course. Many reviews, mapped to eight quality standards, show where an institution is strong and where faculty development should go next.",
+      "An AI-assisted, human-validated course evaluation tool informed by Quality Matters (QM) standards that assesses instructional design, accessibility, and course quality, identifies trends across programs, and provides actionable insights for continuous improvement.",
     points: [
-      "Catalog patterns, not just single courses",
-      "AI-assisted review, human-certified",
-      "Accessibility assessed against WCAG 2.1 AA",
+      "Course quality insights informed by Quality Matters (QM) standards",
+      "AI-assisted, human-validated reviews that support continuous improvement",
+      "Accessibility evaluation against WCAG 2.1 AA",
     ],
-    prompt: "See a catalog against eight quality standards, then decide where faculty development should go next.",
+    prompt: "Every course. One view. AI-accelerated review. Human-certified.",
     cta: "Explore the platform",
-    href: "https://platform.elevatedlearningpartners.com/",
+    href: PLATFORM_URL,
     external: true,
+    secondaryCta: "Request a demo",
+    secondaryHref: enquireEmail("Course Quality Benchmarking Platform demo"),
   },
   {
     number: "03",
     id: "product-automation",
     tone: "mint",
-    audience: "Workflows",
+    audience: "Business & organizational workflows",
     title: "AI & automation solutions",
-    summary: "Technology that gives time back to the work.",
+    summary: "Smarter processes. More time for meaningful work.",
     detail:
-      "Connected systems for communication, reminders, scheduling, and progress tracking, so teams spend less time on repeat tasks.",
-    points: ["Faster client responses", "Automated reminders", "Live progress records"],
+      "Practical AI-powered solutions that help educational institutions, organizations, and growing businesses automate repetitive tasks, streamline communication, improve scheduling, and manage everyday operations more efficiently.",
+    points: [
+      "Automated communication and follow-ups",
+      "Streamlined scheduling and administrative workflows",
+      "Improved tracking and operational efficiency",
+    ],
     prompt: "Bring one task your team repeats every week. We can show what is ready to run on its own.",
-    cta: "Tell us what to automate",
+    cta: "Email us about automation",
     href: enquireEmail("AI and automation"),
+    secondaryCta: "WhatsApp",
+    secondaryHref: enquireWhatsApp("AI and automation") ?? undefined,
   },
   {
     number: "04",
     id: "product-technology",
     tone: "sage",
-    audience: "Teaching and learning",
+    audience: "Teaching & learning",
     title: "Learning technology integration",
-    summary: "Digital tools chosen for the learning, not the other way around.",
+    summary: "Technology designed around teaching and learning.",
     detail:
-      "Authoring tools, LMS platforms, and interactive media, integrated with care and without extra complexity.",
-    points: ["LMS and authoring fit", "Interactive media", "Practical for the team who will use it"],
+      "Strategic selection, integration, and optimization of learning management systems, digital learning tools, and interactive technologies that enhance instruction and learner engagement.",
+    points: [
+      "LMS and learning technology integration",
+      "Digital and interactive learning tools",
+      "Practical implementation and adoption support",
+    ],
     prompt: "Bring the tools you already have. We will help you keep what serves the learning.",
-    cta: "Ask which tools fit",
+    cta: "Email us about learning technology",
     href: enquireEmail("Learning technology integration"),
+    secondaryCta: "WhatsApp",
+    secondaryHref: enquireWhatsApp("Learning technology integration") ?? undefined,
   },
 ];
 
-const audiences = [
+const expertiseAreas = [
   {
-    id: "higher-ed",
+    id: "curriculum-design",
     number: "01",
-    label: "Higher education",
-    copy: "Curriculum, course design, faculty development, and quality reviews for universities and colleges.",
+    label: "Curriculum & instructional design",
+    copy: "Design engaging, standards-aligned curricula, courses, and learning experiences for K-12, higher education, adult education, and professional learning.",
     href: "#offerings",
-    cta: "Explore our offerings",
+    cta: "See our offerings",
     tone: "forest",
   },
   {
-    id: "organisations",
+    id: "educator-development",
     number: "02",
-    label: "Organizations",
-    copy: "Training, curriculum, and instructional design that transfer lasting skill into your teams.",
+    label: "Educator, professional & workforce development",
+    copy: "Equip educators, trainers, and organizational teams with practical strategies, training programs, and learning experiences that strengthen instructional effectiveness and workforce skills.",
     href: "#offerings",
-    cta: "Explore our offerings",
+    cta: "See our offerings",
     tone: "gold",
   },
   {
-    id: "businesses",
+    id: "learning-strategy",
     number: "03",
-    label: "Growing businesses",
-    copy: "AI automation for client communication, scheduling and progress tracking that returns hours to the people doing the work.",
+    label: "Learning strategy & innovation",
+    copy: "Help institutions and organizations evaluate learning needs, improve educational programs, and integrate innovative approaches and technologies.",
     href: "#innovation",
-    cta: "See how technology helps",
+    cta: "See innovation & technology",
     tone: "mint",
   },
+] as const;
+
+const platformScreens = [
+  {
+    src: "/brand/platform/01-overview.png",
+    alt: "Course Quality Benchmarking Platform overview with rubric-based review, leadership dashboard, and institution-isolated data",
+  },
+  {
+    src: "/brand/platform/02-kpis.png",
+    alt: "Course Quality Benchmarking Platform showing strongest and weakest standards with recently updated course reviews",
+  },
+  {
+    src: "/brand/platform/03-heatmap.png",
+    alt: "Course Quality Benchmarking Platform institutional heatmap with faculty development insight and maturity distribution",
+  },
+];
+
+const platformStream = [...platformScreens, ...platformScreens];
+
+const navLinks = [
+  { href: "#offerings", label: "Offerings", sections: ["offerings"] },
+  { href: "#innovation", label: "Innovation", sections: ["innovation"] },
+  {
+    href: "#course-quality-platform",
+    label: "Portfolio",
+    sections: ["course-quality-platform", "portfolio", "credentials"],
+  },
+  { href: "#about", label: "About", sections: ["about", "process"] },
 ] as const;
 
 const process = [
@@ -281,6 +331,7 @@ function App() {
   const [modalPhase, setModalPhase] = useState<"opening" | "open" | "closing">("open");
   const [carouselPaused, setCarouselPaused] = useState(false);
   const [heroIndex, setHeroIndex] = useState(0);
+  const [activeNav, setActiveNav] = useState<string | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
   const carouselTrackRef = useRef<HTMLDivElement>(null);
   const carouselOffsetRef = useRef(0);
@@ -302,18 +353,38 @@ function App() {
       const start = window.scrollY;
       const distance = end - start;
       if (Math.abs(distance) < 2) return;
-      const duration = Math.min(1100, Math.max(520, Math.abs(distance) * 0.28));
+      // ~0.5s soft accel, cruise, ~0.5s soft decel with continuous velocity.
+      const edge = 500;
+      const cruise = Math.min(1800, Math.max(520, Math.abs(distance) * 0.42));
+      const duration = edge * 2 + cruise;
       const started = performance.now();
       const root = document.documentElement;
       root.style.scrollBehavior = "auto";
-      const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - ((-2 * t + 2) ** 2) / 2);
+      // Integral of smoothstep(u)=3u²-2u³ is u³-½u⁴; edge ramps match cruise speed.
+      const integSmooth = (u: number) => {
+        const x = Math.min(1, Math.max(0, u));
+        return x * x * x - 0.5 * x * x * x * x;
+      };
+      const totalWeight = edge + cruise;
+      const progressAt = (elapsed: number) => {
+        if (elapsed <= edge) {
+          return (edge * integSmooth(elapsed / edge)) / totalWeight;
+        }
+        if (elapsed <= edge + cruise) {
+          return (edge * 0.5 + (elapsed - edge)) / totalWeight;
+        }
+        const u = Math.min(1, (elapsed - edge - cruise) / edge);
+        return (edge * 0.5 + cruise + edge * (u - integSmooth(u))) / totalWeight;
+      };
       const step = () => {
-        const t = Math.min(1, (performance.now() - started) / duration);
-        window.scrollTo(0, start + distance * ease(t));
-        if (t < 1) {
+        const elapsed = performance.now() - started;
+        const t = Math.min(1, progressAt(elapsed));
+        window.scrollTo(0, start + distance * t);
+        if (elapsed < duration) {
           frame = window.setTimeout(step, 16);
           return;
         }
+        window.scrollTo(0, end);
         root.style.scrollBehavior = "";
       };
       window.clearTimeout(frame);
@@ -355,10 +426,42 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 100);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const sectionIds = [
+      "offerings",
+      "innovation",
+      "course-quality-platform",
+      "portfolio",
+      "credentials",
+      "about",
+      "process",
+      "contact",
+    ];
+    const update = () => {
+      setScrolled(window.scrollY > 100);
+      const marker = Math.min(Math.round(window.innerHeight * 0.32), 260);
+      let current: string | null = null;
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= marker) current = id;
+      }
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 48) {
+        current = "contact";
+      }
+      if (!current) {
+        setActiveNav(null);
+        return;
+      }
+      const match = navLinks.find((link) => (link.sections as readonly string[]).includes(current));
+      setActiveNav(match?.href ?? (current === "contact" ? "#contact" : null));
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   useEffect(() => {
@@ -505,12 +608,25 @@ function App() {
         </a>
 
         <nav className={menuOpen ? "main-nav is-open" : "main-nav"} aria-label="Primary navigation">
-          <a href="#offerings" onClick={() => setMenuOpen(false)}>Offerings</a>
-          <a href="#innovation" onClick={() => setMenuOpen(false)}>Innovation & Technology</a>
-          <a href="#portfolio" onClick={() => setMenuOpen(false)}>Portfolio</a>
-          <a href="#credentials" onClick={() => setMenuOpen(false)}>Credentials</a>
-          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-          <a href="#contact" className="nav-contact" onClick={() => setMenuOpen(false)}>Start a conversation</a>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={activeNav === link.href ? "is-active" : undefined}
+              aria-current={activeNav === link.href ? "true" : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className={`nav-contact${activeNav === "#contact" ? " is-active" : ""}`}
+            aria-current={activeNav === "#contact" ? "true" : undefined}
+            onClick={() => setMenuOpen(false)}
+          >
+            Start a conversation
+          </a>
         </nav>
 
         <div className="header-actions">
@@ -574,36 +690,39 @@ function App() {
           </div>
         </section>
 
-        <section className="audiences section" id="who-we-help" aria-label="Who we help">
+        <section className="audiences section" id="expertise" aria-label="Our expertise">
           <div className="container">
             <div className="section-heading reveal">
               <div>
-                <p className="eyebrow">Who we help</p>
-                <h2>
-                  Built for the people
+                <p className="eyebrow">Our expertise</p>
+                <h2 className="section-title">
+                  Curriculum, instruction
                   <br />
-                  <span className="display-accent">shaping learning.</span>
+                  and strategy. Built for
+                  <br />
+                  <span className="display-accent is-inline">diverse learners.</span>
                 </h2>
               </div>
               <p>
-                Whether you lead a faculty team, an L&D function or a growing business,
-                we meet you in the challenge and design what lasts.
+                We partner with schools, higher education institutions, and organizations
+                to design effective curricula, elevate instructional practices, and create
+                learning solutions that meet the needs of diverse learners.
               </p>
             </div>
             <div className="audience-cards">
-              {audiences.map((audience) => (
+              {expertiseAreas.map((area) => (
                 <a
-                  className={`audience-card audience-${audience.tone} reveal`}
-                  key={audience.id}
-                  href={audience.href}
+                  className={`audience-card audience-${area.tone} reveal`}
+                  key={area.id}
+                  href={area.href}
                 >
-                  <span className="audience-number">{audience.number}</span>
+                  <span className="audience-number">{area.number}</span>
                   <div className="audience-body">
-                    <h3>{audience.label}</h3>
-                    <p>{audience.copy}</p>
+                    <h3>{area.label}</h3>
+                    <p>{area.copy}</p>
                   </div>
                   <span className="audience-link">
-                    {audience.cta} <MoveRight size={18} />
+                    {area.cta} <MoveRight size={18} />
                   </span>
                 </a>
               ))}
@@ -616,15 +735,15 @@ function App() {
             <div className="section-heading services-heading reveal">
               <div>
                 <p className="eyebrow">Our offerings</p>
-                <h2>
-                  Thoughtfully designed learning.
-                  <br />
-                  <span className="display-accent">Lasting impact.</span>
+                <h2 className="section-title offerings-title">
+                  Thoughtfully designed learning.{" "}
+                  <span className="display-accent is-inline">Lasting impact.</span>
                 </h2>
               </div>
               <p>
-                Curriculum, course design, and professional training for organizations
-                that want learning to transfer into practice.
+                We partner with K-12 schools, higher education institutions, adult education
+                providers, and organizations to develop effective curricula, strengthen
+                instructional practices, and improve learning outcomes.
               </p>
             </div>
             <div className="service-list">
@@ -645,20 +764,21 @@ function App() {
           </div>
         </section>
 
-        <section className="products-compact section" id="innovation" aria-label="Innovation and technology">
+        <section className="products-compact section" id="innovation" aria-label="Innovation">
           <div className="container">
             <div className="section-heading reveal">
               <div>
-                <p className="eyebrow">Innovation & technology</p>
-                <h2>
-                  Innovative solutions that enhance
+                <p className="eyebrow">Innovation</p>
+                <h2 className="section-title">
+                  Thoughtful technology.
                   <br />
-                  <span className="display-accent">learning and performance.</span>
+                  <span className="display-accent is-inline">Smarter ways of working.</span>
                 </h2>
               </div>
               <p>
-                Technology in service of the learning: faculty support, course quality,
-                automation, and the tools a team will actually use.
+                We help educational institutions, organizations, and growing businesses
+                leverage purposeful technology, streamline operations, and create smarter
+                solutions that improve learning, performance, and productivity.
               </p>
             </div>
             <div className="product-compact-grid innovation-grid">
@@ -679,15 +799,28 @@ function App() {
                     </ul>
                     <div className="product-compact-cta">
                       <p className="product-compact-prompt">{item.prompt}</p>
-                      <a
-                        className="button button-gold product-compact-action"
-                        href={item.href}
-                        {...("external" in item && item.external
-                          ? { target: "_blank", rel: "noreferrer" }
-                          : {})}
-                      >
-                        {item.cta}
-                      </a>
+                      <div className="product-compact-actions">
+                        <a
+                          className="button button-gold product-compact-action"
+                          href={item.href}
+                          {...("external" in item && item.external
+                            ? { target: "_blank", rel: "noreferrer" }
+                            : {})}
+                        >
+                          {item.cta}
+                        </a>
+                        {item.secondaryHref && item.secondaryCta && (
+                          <a
+                            className="button button-outline product-compact-action"
+                            href={item.secondaryHref}
+                            {...(item.secondaryHref.startsWith("http")
+                              ? { target: "_blank", rel: "noreferrer" }
+                              : {})}
+                          >
+                            {item.secondaryCta}
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -696,20 +829,87 @@ function App() {
           </div>
         </section>
 
+        <section className="platform-feature section" id="course-quality-platform" aria-label="Course Quality Benchmarking Platform">
+          <div className="container platform-layout">
+            <div className="platform-media reveal" aria-hidden="true">
+              <div className="platform-stream">
+                {platformStream.map((screen, index) => (
+                  <img
+                    key={`${screen.src}-${index}`}
+                    className="platform-shot"
+                    src={screen.src}
+                    alt=""
+                    loading={index < 3 ? "eager" : "lazy"}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="platform-intro reveal">
+              <p className="eyebrow">Course quality platform</p>
+              <h2 className="section-title platform-title">
+                The Course Quality
+                <br />
+                <span className="display-accent is-inline">Benchmarking Platform</span>
+              </h2>
+              <p className="platform-lead">
+                Give higher education leadership a clear view of course quality across
+                every course in the catalog.
+              </p>
+              <p className="platform-tagline">
+                Every course. One view.
+                <br />
+                AI-accelerated review. Human-certified.
+              </p>
+              <div className="platform-copy">
+                <p>
+                  Built for higher education: rubric-based review, a leadership dashboard,
+                  and institution-isolated data in one platform.
+                </p>
+                <p>
+                  See your strongest and weakest standards at a glance, and track every new
+                  review as it enters the catalog.
+                </p>
+                <p>
+                  The institutional heatmap surfaces catalog-wide weaknesses quickly, so
+                  leadership knows exactly where to invest faculty development next.
+                </p>
+              </div>
+              <div className="button-row platform-actions">
+                <a
+                  className="button button-primary"
+                  href={PLATFORM_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Explore the platform
+                </a>
+                <a
+                  className="button button-outline"
+                  href={enquireEmail("Course Quality Benchmarking Platform demo")}
+                >
+                  <Mail size={17} /> Request a demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="portfolio-section section" id="portfolio">
           <div className="container portfolio-heading reveal">
             <div>
-              <p className="eyebrow eyebrow-light">Selected portfolio</p>
-              <h2>
-                Work you can
+              <p className="eyebrow eyebrow-light">Selected work</p>
+              <h2 className="section-title">
+                Our expertise
                 <br />
-                <span className="display-accent">look inside.</span>
+                <span className="display-accent is-inline">in action.</span>
               </h2>
             </div>
             <div className="portfolio-intro">
               <p>
-                Projects spanning automation, instructional design,
-                accessibility, analytics and faculty development.
+                Explore selected projects that demonstrate how we bring together learning
+                design, strategic thinking, and innovative technology to solve challenges
+                and deliver meaningful results.
               </p>
               <div className="carousel-controls">
                 <button type="button" aria-label="Previous projects" onClick={() => scrollCarousel(-1)}><ChevronLeft /></button>
@@ -772,9 +972,10 @@ function App() {
               </div>
               <div className="credential-copy">
                 <p className="eyebrow">Credentials</p>
-                <h2>
-                  <span className="credential-line">Independently recognized.</span>
-                  <span className="display-accent">Practically applied.</span>
+                <h2 className="section-title credentials-title">
+                  Independently recognized.
+                  <br />
+                  <span className="display-accent is-inline">Practically applied.</span>
                 </h2>
                 <p>
                   Our CPD-certified courses reflect a commitment to excellence in design, development,
@@ -791,16 +992,12 @@ function App() {
           <div className="container about-layout">
             <div className="about-copy reveal">
               <p className="eyebrow">Who we are</p>
-              <h2>
+              <h2 className="section-title about-title">
                 We are not just
                 <br />
                 designers. We are
                 <br />
-                <span className="display-accent">
-                  transformation
-                  <br />
-                  partners.
-                </span>
+                <span className="display-accent is-inline">transformation partners.</span>
               </h2>
               <p className="about-lead">
                 ElevatED Learning Partners is a women-led learning and development
@@ -856,10 +1053,16 @@ function App() {
           <div className="container process-wrap">
             <div className="process-heading reveal">
               <p className="eyebrow">How we work</p>
-              <h2 className="process-title">
-                Co-created.{" "}
-                <span className="display-accent is-inline"><br />Built to last.</span>
+              <h2 className="section-title process-title">
+                Co-created.
+                <br />
+                <span className="display-accent is-inline">Built to last.</span>
               </h2>
+              <p className="process-lead">
+                We stay close to your people and your context at every step, so what we
+                design together transfers cleanly, and your team can keep improving it
+                long after launch.
+              </p>
             </div>
             <div className="process-list">
               {process.map(([number, title, copy], index) => (
@@ -885,10 +1088,10 @@ function App() {
           <div className="container contact-grid reveal">
             <div>
               <p className="eyebrow eyebrow-light">Start a conversation</p>
-              <h2>
+              <h2 className="section-title contact-title">
                 What could learning
                 <br />
-                <span className="display-accent">look like next?</span>
+                <span className="display-accent is-inline">look like next?</span>
               </h2>
             </div>
             <div className="contact-copy">
@@ -929,9 +1132,10 @@ function App() {
           <div className="footer-links">
             <a href="#offerings">Offerings</a>
             <a href="#innovation">Innovation</a>
-            <a href="#portfolio">Portfolio</a>
+            <a href="#course-quality-platform">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#process">How we work</a>
             <a href="#credentials">Credentials</a>
-            <a href="#contact">Contact</a>
           </div>
         </div>
         <div className="container footer-base">
