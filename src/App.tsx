@@ -152,7 +152,7 @@ const innovations = [
       "Accessibility evaluation against WCAG 2.1 AA",
     ],
     cta: "Request a demo",
-    href: enquireEmail("Course Quality Benchmarking Platform demo"),
+    calendly: true,
     secondaryCta: "WhatsApp",
     secondaryHref: enquireWhatsApp("Course Quality Benchmarking Platform") ?? undefined,
   },
@@ -826,12 +826,22 @@ function App() {
                     </ul>
                     <div className="product-compact-cta">
                       <div className="product-compact-actions">
-                        <a
-                          className="button button-gold product-compact-action"
-                          href={item.href}
-                        >
-                          {item.cta}
-                        </a>
+                        {"calendly" in item && item.calendly ? (
+                          <button
+                            className="button button-gold product-compact-action"
+                            type="button"
+                            onClick={openCalendly}
+                          >
+                            <Calendar size={17} /> {item.cta}
+                          </button>
+                        ) : (
+                          <a
+                            className="button button-gold product-compact-action"
+                            href={"href" in item ? item.href : undefined}
+                          >
+                            {item.cta}
+                          </a>
+                        )}
                         {item.secondaryHref && item.secondaryCta && (
                           <a
                             className="button button-outline product-compact-action"
@@ -899,12 +909,13 @@ function App() {
                 </p>
               </div>
               <div className="button-row platform-actions">
-                <a
+                <button
                   className="button button-primary"
-                  href={enquireEmail("Course Quality Benchmarking Platform demo")}
+                  type="button"
+                  onClick={openCalendly}
                 >
-                  <Mail size={17} /> Request a demo
-                </a>
+                  <Calendar size={17} /> Request a demo
+                </button>
                 {platformWhatsApp && (
                   <a
                     className="button button-outline"

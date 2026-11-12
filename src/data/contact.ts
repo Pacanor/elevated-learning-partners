@@ -36,7 +36,7 @@ export const leaders = [
     shortName: "Eliza",
     role: "Co-founder · Learning strategy & analytics",
     bio: "Eliza brings over 18 years of leadership in instructional design, faculty development and learning analytics, alongside nearly two decades teaching college-level mathematics. She specializes in accessibility, Universal Design for Learning, AI automation and data-informed transformation for universities and organizations worldwide.",
-    image: "/team/eliza-osae-kwapong-portrait.jpg",
+    image: "/team/eliza-osae-kwapong-portrait.jpg?v=20261112",
     phone: "+14439399177",
     phoneDisplay: "+1 (443) 939-9177",
     email: `eliza@${CONTACT_DOMAIN}`,
