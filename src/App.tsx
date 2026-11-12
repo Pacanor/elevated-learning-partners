@@ -30,6 +30,7 @@ import {
 import { BrandLockup } from "./components/BrandLockup";
 import { WhatsAppIcon } from "./components/WhatsAppIcon";
 import {
+  CALENDLY_INLINE_URL,
   CALENDLY_URL,
   DP_TECH_URL,
   createEmailLink,
@@ -46,6 +47,10 @@ declare global {
   interface Window {
     Calendly?: {
       initPopupWidget: (options: { url: string }) => void;
+      initInlineWidget?: (options: {
+        url: string;
+        parentElement: HTMLElement;
+      }) => void;
     };
   }
 }
@@ -78,8 +83,6 @@ const heroImages = [
   "/brand/hero/05.jpg?v=20261110",
   "/brand/hero/06.jpg?v=20261110",
 ];
-
-const PLATFORM_URL = "https://platform.elevatedlearningpartners.com/";
 
 const offerings = [
   {
@@ -129,7 +132,6 @@ const innovations = [
       "Centralized, searchable records",
       "Insights for continuous improvement",
     ],
-    prompt: "A good place to start is how a faculty request moves through your team today.",
     cta: "Email us about faculty support",
     href: enquireEmail("Faculty Digital Support Hub"),
     secondaryCta: "WhatsApp",
@@ -149,12 +151,10 @@ const innovations = [
       "AI-assisted, human-validated reviews that support continuous improvement",
       "Accessibility evaluation against WCAG 2.1 AA",
     ],
-    prompt: "Every course. One view. AI-accelerated review. Human-certified.",
-    cta: "Explore the platform",
-    href: PLATFORM_URL,
-    external: true,
-    secondaryCta: "Request a demo",
-    secondaryHref: enquireEmail("Course Quality Benchmarking Platform demo"),
+    cta: "Request a demo",
+    href: enquireEmail("Course Quality Benchmarking Platform demo"),
+    secondaryCta: "WhatsApp",
+    secondaryHref: enquireWhatsApp("Course Quality Benchmarking Platform") ?? undefined,
   },
   {
     number: "03",
@@ -170,7 +170,6 @@ const innovations = [
       "Streamlined scheduling and administrative workflows",
       "Improved tracking and operational efficiency",
     ],
-    prompt: "Bring one task your team repeats every week. We can show what is ready to run on its own.",
     cta: "Email us about automation",
     href: enquireEmail("AI and automation"),
     secondaryCta: "WhatsApp",
@@ -190,7 +189,6 @@ const innovations = [
       "Digital and interactive learning tools",
       "Practical implementation and adoption support",
     ],
-    prompt: "Bring the tools you already have. We will help you keep what serves the learning.",
     cta: "Email us about learning technology",
     href: enquireEmail("Learning technology integration"),
     secondaryCta: "WhatsApp",
@@ -337,8 +335,36 @@ function App() {
   const carouselOffsetRef = useRef(0);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const closeTimerRef = useRef<number | null>(null);
+  const calendlyMountRef = useRef<HTMLDivElement>(null);
 
   useReveal([selectedProject, modalPhase]);
+
+  useEffect(() => {
+    const host = calendlyMountRef.current;
+    if (!host) return;
+
+    let cancelled = false;
+    let attempts = 0;
+    const mount = () => {
+      if (cancelled || !calendlyMountRef.current) return;
+      if (!window.Calendly?.initInlineWidget) {
+        if (attempts < 40) {
+          attempts += 1;
+          window.setTimeout(mount, 150);
+        }
+        return;
+      }
+      calendlyMountRef.current.innerHTML = "";
+      window.Calendly.initInlineWidget({
+        url: CALENDLY_INLINE_URL,
+        parentElement: calendlyMountRef.current,
+      });
+    };
+    mount();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     let frame = 0;
@@ -589,6 +615,7 @@ function App() {
   const generalWhatsApp = createWhatsAppLink(
     "Hello ElevatED Learning Partners. I have just visited your website and would like to discuss a learning or automation project.",
   );
+  const platformWhatsApp = enquireWhatsApp("Course Quality Benchmarking Platform");
 
   const modalStyle =
     modalOrigin && selectedProject
@@ -798,14 +825,10 @@ function App() {
                       ))}
                     </ul>
                     <div className="product-compact-cta">
-                      <p className="product-compact-prompt">{item.prompt}</p>
                       <div className="product-compact-actions">
                         <a
                           className="button button-gold product-compact-action"
                           href={item.href}
-                          {...("external" in item && item.external
-                            ? { target: "_blank", rel: "noreferrer" }
-                            : {})}
                         >
                           {item.cta}
                         </a>
@@ -878,18 +901,20 @@ function App() {
               <div className="button-row platform-actions">
                 <a
                   className="button button-primary"
-                  href={PLATFORM_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Explore the platform
-                </a>
-                <a
-                  className="button button-outline"
                   href={enquireEmail("Course Quality Benchmarking Platform demo")}
                 >
                   <Mail size={17} /> Request a demo
                 </a>
+                {platformWhatsApp && (
+                  <a
+                    className="button button-outline"
+                    href={platformWhatsApp}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <WhatsAppIcon size={17} /> WhatsApp
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -1085,39 +1110,58 @@ function App() {
         <section className="contact-section" id="contact">
           <div className="contact-orbit contact-orbit-one" aria-hidden="true" />
           <div className="contact-orbit contact-orbit-two" aria-hidden="true" />
-          <div className="container contact-grid reveal">
-            <div>
-              <p className="eyebrow eyebrow-light">Start a conversation</p>
-              <h2 className="section-title contact-title">
-                What could learning
-                <br />
-                <span className="display-accent is-inline">look like next?</span>
-              </h2>
-            </div>
-            <div className="contact-copy">
-              <p>
-                Tell us what you are trying to change. Book a time that works,
-                or reach out by email or WhatsApp.
-              </p>
-              <div className="button-row">
-                <button className="button button-gold" type="button" onClick={openCalendly}>
-                  <Calendar size={18} /> Book a call
-                </button>
-                <a
-                  className="button button-light"
-                  href={createEmailLink(
-                    "Learning transformation enquiry",
-                    "Hi, I have just visited your website and would like to talk more about a potential learning or automation project.\n\nA useful place to begin would be...\n\nThank you.",
-                  )}
-                >
-                  <Mail size={18} /> Email our team
-                </a>
-                {generalWhatsApp && (
-                  <a className="button button-ghost" href={generalWhatsApp} target="_blank" rel="noreferrer">
-                    <WhatsAppIcon size={18} /> Chat on WhatsApp
-                  </a>
-                )}
+          <div className="container contact-stack reveal">
+            <div className="contact-grid">
+              <div>
+                <p className="eyebrow eyebrow-light">Start a conversation</p>
+                <h2 className="section-title contact-title">
+                  What could learning
+                  <br />
+                  <span className="display-accent is-inline">look like next?</span>
+                </h2>
               </div>
+              <div className="contact-copy">
+                <p>
+                  Tell us what you are trying to change. Book a time that works,
+                  or reach out by email or WhatsApp.
+                </p>
+                <div className="button-row">
+                  <button className="button button-gold" type="button" onClick={openCalendly}>
+                    <Calendar size={18} /> Book a call
+                  </button>
+                  <a
+                    className="button button-light"
+                    href={createEmailLink(
+                      "Learning transformation enquiry",
+                      "Hi, I have just visited your website and would like to talk more about a potential learning or automation project.\n\nA useful place to begin would be...\n\nThank you.",
+                    )}
+                  >
+                    <Mail size={18} /> Email our team
+                  </a>
+                  {generalWhatsApp && (
+                    <a className="button button-ghost" href={generalWhatsApp} target="_blank" rel="noreferrer">
+                      <WhatsAppIcon size={18} /> Chat on WhatsApp
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="calendly-panel">
+              <div className="calendly-panel-copy">
+                <p className="eyebrow eyebrow-light">Book a discovery call</p>
+                <h3>Pick a time that works for you.</h3>
+                <p>
+                  Prefer to schedule directly? Choose a slot below. The same booking
+                  also opens from Book a call anywhere on the site.
+                </p>
+              </div>
+              <div
+                ref={calendlyMountRef}
+                className="calendly-inline-widget"
+                role="region"
+                aria-label="Book a discovery call with ElevatED Learning Partners"
+              />
             </div>
           </div>
         </section>

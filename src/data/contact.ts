@@ -5,8 +5,12 @@ export const WHATSAPP_NUMBER = "14439399177";
 
 export const DP_TECH_URL = "https://www.digitalpolaroid.tech/";
 
-/** Calendly event URL. Syncs live availability from Google/Outlook calendars. Replace with your team event link. */
-export const CALENDLY_URL = "https://calendly.com/elevatedlearningpartners/intro";
+/** Calendly discovery-call event. Popup CTAs and the contact inline embed share this URL. */
+export const CALENDLY_URL = "https://calendly.com/elevatedlearningpartnersllc/discoverycall";
+
+/** Inline embed URL with brand-aligned colours (paid Calendly plans apply colour params). */
+export const CALENDLY_INLINE_URL =
+  `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=0d261d&text_color=f4f3eb&primary_color=d2aa5c`;
 
 export const createEmailLink = (subject: string, body: string, email = CONTACT_EMAIL) =>
   `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
