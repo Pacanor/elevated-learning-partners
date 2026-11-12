@@ -8,15 +8,28 @@ export const DP_TECH_URL = "https://www.digitalpolaroid.tech/";
 /** Calendly discovery-call event. Popup CTAs and the contact inline embed share this URL. */
 export const CALENDLY_URL = "https://calendly.com/elevatedlearningpartnersllc/discoverycall";
 
+/**
+ * Brand colours for Calendly's embed query string (must stay hex without #).
+ * Keep in sync with CSS tokens: --forest, --tone-on-dark, --gold (Noir).
+ */
+export const CALENDLY_BRAND = {
+  background: "0d261d",
+  text: "f4f3eb",
+  primary: "d2aa5c",
+} as const;
+
 /** Inline embed URL with brand-aligned colours (paid Calendly plans apply colour params). */
 export const CALENDLY_INLINE_URL =
-  `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=0d261d&text_color=f4f3eb&primary_color=d2aa5c`;
+  `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=${CALENDLY_BRAND.background}&text_color=${CALENDLY_BRAND.text}&primary_color=${CALENDLY_BRAND.primary}`;
 
-export const createEmailLink = (subject: string, body: string, email = CONTACT_EMAIL) =>
-  `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+export const createEmailLink = (subject: string, body = "", email = CONTACT_EMAIL) => {
+  let href = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+  if (body) href += `&body=${encodeURIComponent(body)}`;
+  return href;
+};
 
 export const createWhatsAppLink = (message: string, number = WHATSAPP_NUMBER) =>
-  number ? `https://wa.me/${number}?text=${encodeURIComponent(message)}` : null;
+  `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 
 export const enquireMessage = (item: string) =>
   `Hi, I noticed your ${item} on your website and would like to talk more about it.\n\n`;
@@ -36,9 +49,8 @@ export const leaders = [
     shortName: "Eliza",
     role: "Co-founder · Learning strategy & analytics",
     bio: "Eliza brings over 18 years of leadership in instructional design, faculty development and learning analytics, alongside nearly two decades teaching college-level mathematics. She specializes in accessibility, Universal Design for Learning, AI automation and data-informed transformation for universities and organizations worldwide.",
-    image: "/team/eliza-osae-kwapong-portrait.jpg?v=20261112",
+    image: "/team/eliza-osae-kwapong-portrait.jpg",
     phone: "+14439399177",
-    phoneDisplay: "+1 (443) 939-9177",
     email: `eliza@${CONTACT_DOMAIN}`,
     linkedin: "https://www.linkedin.com/in/elizaosaekwapong",
     whatsapp: "14439399177",
@@ -52,7 +64,6 @@ export const leaders = [
     bio: "Hannah is a tech-forward instructional designer with a Master’s in Technology in Education from Lesley University and more than a decade in eLearning, digital pedagogy and curriculum development. She builds accessible, learner-centered experiences across LMS platforms, multimedia and emerging AI-supported teaching tools.",
     image: "/team/hannah-shelton-portrait.jpg",
     phone: "+14432209719",
-    phoneDisplay: "+1 (443) 220-9719",
     email: `hannah@${CONTACT_DOMAIN}`,
     linkedin: "https://www.linkedin.com/in/hannah-shelton-learning",
     whatsapp: "14432209719",

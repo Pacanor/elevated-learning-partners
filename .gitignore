@@ -5,3 +5,6 @@ dist
 *.local
 .env*
 !.env.example
+
+# Local hold for assets not shipped with the site
+_assets-hold/

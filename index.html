@@ -19,11 +19,12 @@
 
     <title>ElevatED Learning Partners | Purposeful Learning, Measurable Progress</title>
 
-    <!-- Icons -->
+    <!-- Icons + PWA-lite manifest -->
     <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/brand/favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" />
     <link rel="shortcut icon" href="/brand/favicon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="ElevatED Learning Partners" />
@@ -52,13 +53,52 @@
     <meta name="twitter:image" content="https://elevatedlearningpartners.com/brand/og-image.jpg" />
     <meta name="twitter:image:alt" content="ElevatED Learning Partners logo" />
 
+    <!-- Fonts: subset to weights we actually use -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
       rel="stylesheet"
     />
+
+    <!-- LCP: first hero slide -->
+    <link rel="preload" as="image" href="/brand/hero/01.jpg" fetchpriority="high" />
+    <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
+    <link rel="dns-prefetch" href="https://calendly.com" />
+    <!-- Calendly (production-stable: CSS in head + async widget.js) -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "ElevatED Learning Partners",
+        "legalName": "ElevatED Learning Partners, LLC",
+        "url": "https://elevatedlearningpartners.com/",
+        "logo": "https://elevatedlearningpartners.com/brand/og-image.jpg",
+        "image": "https://elevatedlearningpartners.com/brand/og-image.jpg",
+        "description": "Learning design, professional training, and the technology that helps both last. For universities, organizations, and growing businesses.",
+        "email": "team@elevatedlearningpartners.com",
+        "telephone": "+1-443-939-9177",
+        "areaServed": ["Worldwide"],
+        "sameAs": [
+          "https://www.linkedin.com/in/elizaosaekwapong",
+          "https://www.linkedin.com/in/hannah-shelton-learning"
+        ],
+        "founder": [
+          {
+            "@type": "Person",
+            "name": "Eliza Osae-Kwapong",
+            "jobTitle": "Co-founder"
+          },
+          {
+            "@type": "Person",
+            "name": "Hannah Shelton",
+            "jobTitle": "Co-founder"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,0 +1,27 @@
+{
+  "name": "ElevatED Learning Partners",
+  "short_name": "ElevatED",
+  "description": "Purposeful learning design, practical training, and measurable progress.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d261d",
+  "theme_color": "#0d261d",
+  "icons": [
+    {
+      "src": "/brand/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/brand/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
