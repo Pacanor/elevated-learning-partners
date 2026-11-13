@@ -1129,12 +1129,47 @@ html, body { max-width: 100%; overflow-x: clip; }
   margin: 0; max-width: 640px; color: inherit; font-size: 1.12rem; line-height: 1.65;
 }
 
+.course-showcase { background: var(--paper); }
+.course-showcase-layout {
+  display: grid; grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
+  align-items: center; gap: 48px;
+}
+.course-showcase-media {
+  position: relative; overflow: hidden;
+  border-radius: 22px; background: var(--forest);
+  box-shadow: var(--shadow);
+}
+.course-showcase-media img {
+  width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+}
+.course-showcase-badge {
+  position: absolute; top: 16px; left: 16px;
+  padding: 8px 12px; color: var(--tone-on-light);
+  background: var(--gold); border-radius: 4px;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.course-showcase-copy h2 { max-width: 16ch; }
+.course-showcase-lead {
+  max-width: 52ch; margin: 18px 0 22px; color: var(--muted);
+  font-size: 1.12rem; line-height: 1.65;
+}
+.course-showcase-modules {
+  display: grid; margin: 0 0 28px; padding: 0; list-style: none; gap: 10px;
+}
+.course-showcase-modules li {
+  display: flex; align-items: flex-start; gap: 10px;
+  color: var(--ink); font-size: 0.95rem; line-height: 1.45; font-weight: 650;
+}
+.course-showcase-modules svg {
+  flex: 0 0 auto; margin-top: 3px; color: var(--gold-deep);
+}
+
 .contact-section {
   position: relative; padding: 130px 0; overflow: hidden; color: var(--tone-on-dark); background: var(--forest);
 }
 .contact-stack {
   position: relative; z-index: 2;
-  display: grid; gap: 56px;
+  display: grid; gap: 0;
 }
 .contact-grid {
   display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: end; gap: 100px;
@@ -1142,29 +1177,6 @@ html, body { max-width: 100%; overflow-x: clip; }
 .contact-section h2 { color: var(--tone-on-dark); }
 .contact-copy > p {
   margin-bottom: 30px; color: rgba(244, 243, 235, 0.7); font-size: 1.2rem; line-height: 1.65;
-}
-.calendly-panel {
-  display: grid; grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
-  gap: 28px; align-items: stretch;
-  padding: 28px; border: 1px solid rgba(244, 243, 235, 0.12);
-  border-radius: 28px; background: color-mix(in srgb, #071710 72%, transparent);
-  backdrop-filter: blur(10px);
-}
-.calendly-panel-copy {
-  display: grid; align-content: start; gap: 14px; padding: 12px 8px 8px;
-}
-.calendly-panel-copy h3 {
-  margin: 0; color: var(--tone-on-dark); font-family: var(--display);
-  font-size: clamp(1.55rem, 2.4vw, 2.1rem); font-weight: 450; line-height: 1.2;
-}
-.calendly-panel-copy p {
-  margin: 0; max-width: 34ch; color: rgba(244, 243, 235, 0.7);
-  font-size: 1.02rem; line-height: 1.6;
-}
-.calendly-inline-widget {
-  min-width: 0; width: 100%; height: 700px;
-  overflow: hidden; border-radius: 18px;
-  background: var(--forest);
 }
 .contact-orbit-one {
   top: -55%; right: -15%; width: 65vw; aspect-ratio: 1;
@@ -1416,12 +1428,11 @@ html, body { max-width: 100%; overflow-x: clip; }
   .section-heading,
   .portfolio-heading,
   .platform-layout,
+  .course-showcase-layout,
   .about-layout,
   .contact-grid,
-  .calendly-panel,
   .process-wrap { grid-template-columns: 1fr; gap: 28px; }
-  .calendly-inline-widget { height: 640px; }
-  .calendly-panel-copy p { max-width: none; }
+  .course-showcase-media { order: -1; }
   .platform-feature { min-height: 0; padding: 86px 0; align-items: stretch; }
   .platform-media { height: min(52dvh, 420px); order: -1; }
   .process-lead { max-width: 46ch; }

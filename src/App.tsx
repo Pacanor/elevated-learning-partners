@@ -35,11 +35,10 @@ import { expertiseAreas } from "./data/expertise";
 import { innovations } from "./data/innovations";
 import { offerings } from "./data/offerings";
 import { platformStream } from "./data/platform";
-import { portfolioProjects, type PortfolioProject } from "./data/portfolio";
+import { aiEssentialsCourse, portfolioProjects, type PortfolioProject } from "./data/portfolio";
 import { SITE_LEGAL_NAME, navLinks, processSteps } from "./data/site";
 import { useReveal } from "./hooks/useReveal";
 import { useSoftHashScroll } from "./hooks/useSoftHashScroll";
-import { mountCalendlyInline } from "./lib/calendly";
 import { readStoredTheme, writeStoredTheme, type Theme } from "./lib/theme";
 
 type ModalOrigin = { dx: number; dy: number };
@@ -60,7 +59,6 @@ function App() {
   const carouselHalfWidthRef = useRef(0);
   const closeTimerRef = useRef<number | null>(null);
   const modalPhaseRef = useRef<"opening" | "open" | "closing">("open");
-  const calendlyMountRef = useRef<HTMLDivElement>(null);
   const lastOpenerRef = useRef<HTMLElement | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
@@ -68,27 +66,6 @@ function App() {
   const closeMenu = useCallback(() => setMenuOpen(false), []);
   useReveal(!selectedProject);
   useSoftHashScroll({ onNavigate: closeMenu });
-
-  // Production-stable inline mount: poll until widget.js exposes initInlineWidget.
-  useEffect(() => {
-    const host = calendlyMountRef.current;
-    if (!host) return;
-
-    let cancelled = false;
-    let attempts = 0;
-    const mount = () => {
-      if (cancelled || !calendlyMountRef.current) return;
-      if (mountCalendlyInline(calendlyMountRef.current)) return;
-      if (attempts < 40) {
-        attempts += 1;
-        window.setTimeout(mount, 150);
-      }
-    };
-    mount();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   useEffect(() => {
     writeStoredTheme(theme);
@@ -101,6 +78,7 @@ function App() {
       "innovation",
       "course-quality-platform",
       "portfolio",
+      "ai-essentials",
       "credentials",
       "about",
       "process",
@@ -358,11 +336,8 @@ function App() {
               <div>
                 <p className="eyebrow">Our expertise</p>
                 <h2 className="section-title">
-                  Curriculum, instruction
-                  <br />
-                  and strategy. Built for
-                  <br />
-                  <span className="display-accent is-inline">diverse learners.</span>
+                  Thoughtfully designed learning.{" "}
+                  <span className="display-accent is-inline">Meaningful impact.</span>
                 </h2>
               </div>
               <p>
@@ -430,7 +405,7 @@ function App() {
           <div className="container">
             <div className="section-heading reveal">
               <div>
-                <p className="eyebrow">Innovation</p>
+                <p className="eyebrow">Innovation & Technology</p>
                 <h2 className="section-title">
                   Thoughtful technology.
                   <br />
@@ -557,9 +532,8 @@ function App() {
             <div>
               <p className="eyebrow eyebrow-light">Selected work</p>
               <h2 className="section-title">
-                Our expertise
-                <br />
-                <span className="display-accent is-inline">in action.</span>
+                Our Expertise{" "}
+                <span className="display-accent is-inline">in Action.</span>
               </h2>
             </div>
             <div className="portfolio-intro">
@@ -610,6 +584,48 @@ function App() {
                   </span>
                 </button>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="course-showcase section" id="ai-essentials" aria-label="AI Essentials CPD course">
+          <div className="container course-showcase-layout reveal">
+            <div className="course-showcase-media">
+              <img
+                src={aiEssentialsCourse.cover}
+                alt="AI Essentials for Working Professionals course cover"
+                width={960}
+                height={720}
+                loading="lazy"
+                decoding="async"
+              />
+              <span className="course-showcase-badge">First CPD course</span>
+            </div>
+            <div className="course-showcase-copy">
+              <p className="eyebrow">CPD-certified learning</p>
+              <h2 className="section-title">
+                {aiEssentialsCourse.shortTitle}
+                <br />
+                <span className="display-accent is-inline">for working professionals.</span>
+              </h2>
+              <p className="course-showcase-lead">{aiEssentialsCourse.summary}</p>
+              <ul className="course-showcase-modules">
+                {aiEssentialsCourse.impact.map((item) => (
+                  <li key={item}>
+                    <CircleCheck size={16} /> {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="button-row">
+                <button
+                  className="button button-primary"
+                  type="button"
+                  onClick={(event) => openProject(aiEssentialsCourse, event)}
+                >
+                  View the course <ArrowRight size={17} />
+                </button>
+                <CalendlyButton label="Book a call" className="button button-outline" iconSize={17} />
+              </div>
             </div>
           </div>
         </section>
@@ -751,23 +767,6 @@ function App() {
                   </a>
                 </div>
               </div>
-            </div>
-
-            <div className="calendly-panel">
-              <div className="calendly-panel-copy">
-                <p className="eyebrow eyebrow-light">Book a discovery call</p>
-                <h3>Pick a time that works for you.</h3>
-                <p>
-                  Prefer to schedule directly? Choose a slot below. The same booking
-                  also opens from Book a call anywhere on the site.
-                </p>
-              </div>
-              <div
-                ref={calendlyMountRef}
-                className="calendly-inline-widget"
-                role="region"
-                aria-label="Book a discovery call with ElevatED Learning Partners"
-              />
             </div>
           </div>
         </section>

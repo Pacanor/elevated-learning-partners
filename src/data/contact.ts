@@ -5,11 +5,11 @@ export const WHATSAPP_NUMBER = "14439399177";
 
 export const DP_TECH_URL = "https://www.digitalpolaroid.tech/";
 
-/** Calendly discovery-call event. Popup CTAs and the contact inline embed share this URL. */
+/** Calendly discovery-call event used by Book a call / Request a demo popups. */
 export const CALENDLY_URL = "https://calendly.com/elevatedlearningpartnersllc/discoverycall";
 
 /**
- * Brand colours for Calendly's embed query string (must stay hex without #).
+ * Brand colours for Calendly embed query strings (must stay hex without #).
  * Keep in sync with CSS tokens: --forest, --tone-on-dark, --gold (Noir).
  */
 export const CALENDLY_BRAND = {
@@ -18,7 +18,7 @@ export const CALENDLY_BRAND = {
   primary: "d2aa5c",
 } as const;
 
-/** Inline embed URL with brand-aligned colours (paid Calendly plans apply colour params). */
+/** Branded Calendly URL (kept for embed reuse; paid plans apply colour params). */
 export const CALENDLY_INLINE_URL =
   `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=${CALENDLY_BRAND.background}&text_color=${CALENDLY_BRAND.text}&primary_color=${CALENDLY_BRAND.primary}`;
 
@@ -47,27 +47,27 @@ export const leaders = [
   {
     name: "Eliza Osae-Kwapong, Ed.D.",
     shortName: "Eliza",
-    role: "Co-founder · Learning strategy & analytics",
-    bio: "Eliza brings over 18 years of leadership in instructional design, faculty development and learning analytics, alongside nearly two decades teaching college-level mathematics. She specializes in accessibility, Universal Design for Learning, AI automation and data-informed transformation for universities and organizations worldwide.",
+    role: "Co-founder · Learning Strategy & Analytics",
+    bio: "Eliza is an experienced instructional designer and educator with over 18 years of experience in instructional design, faculty development, and learning analytics, alongside nearly two decades of teaching college-level mathematics. She creates accessible, learner-centered experiences through Universal Design for Learning (UDL), AI automation, and data-informed strategies.",
     image: "/team/eliza-osae-kwapong-portrait.jpg",
     phone: "+14439399177",
     email: `eliza@${CONTACT_DOMAIN}`,
     linkedin: "https://www.linkedin.com/in/elizaosaekwapong",
     whatsapp: "14439399177",
     qualification:
-      "Certified across Quality Matters course review and AI workflow automation, which sharpens her course reviews and the faculty support systems she designs.",
+      "With certifications in Quality Matters course review and AI workflow automation, she combines evidence-based design, inclusive practices, and emerging technologies to enhance online learning and faculty support systems.",
   },
   {
     name: "Hannah Shelton, M.Ed.",
     shortName: "Hannah",
-    role: "Co-founder · Instructional design & digital pedagogy",
-    bio: "Hannah is a tech-forward instructional designer with a Master’s in Technology in Education from Lesley University and more than a decade in eLearning, digital pedagogy and curriculum development. She builds accessible, learner-centered experiences across LMS platforms, multimedia and emerging AI-supported teaching tools.",
+    role: "Co-founder · Instructional Design & Digital Pedagogy",
+    bio: "Hannah is a tech-forward instructional designer with a master’s degree in Technology in Education and over a decade of experience in eLearning, instructional design, and curriculum development. She creates accessible, learner-centered experiences across LMS platforms, multimedia, and emerging AI technologies.",
     image: "/team/hannah-shelton-portrait.jpg",
     phone: "+14432209719",
     email: `hannah@${CONTACT_DOMAIN}`,
     linkedin: "https://www.linkedin.com/in/hannah-shelton-learning",
     whatsapp: "14432209719",
     qualification:
-      "Certified across Quality Matters course review and applied AI, including Johns Hopkins and COABE, which sharpens the courses and faculty learning she designs.",
+      "With certification in Quality Matters course review and Agentic AI Engineering, along with accessibility training through WebAIM, she combines evidence-based design, inclusive practices, and emerging technologies to create engaging, effective digital learning experiences.",
   },
 ] as const;

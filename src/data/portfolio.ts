@@ -14,29 +14,31 @@ export interface PortfolioProject {
   cpd?: boolean;
 }
 
+/** First CPD course — shown in its own showcase, not the portfolio carousel. */
+export const aiEssentialsCourse: PortfolioProject = {
+  id: "ai-essentials",
+  title: "AI Essentials for Working Professionals",
+  shortTitle: "AI Essentials",
+  category: "CPD-certified course",
+  client: "Working professionals",
+  summary:
+    "A six-module course that teaches you how to use AI with confidence, accuracy, and judgment, whether you are new to AI or sharpening skills you already have.",
+  role: "Course architecture, module design, practical scenarios, and facilitation materials for professional learners.",
+  impact: [
+    "01 AI Foundations: What AI is, what it is not, and ground rules for responsible use",
+    "02 The Art of AI Prompting: Ask AI the right questions to get the right answers",
+    "03 AI for Research: Gather and cross-check information you can actually trust",
+    "04 AI Content Studio: Draft and tailor content for different audiences and formats",
+    "05 Streamlining with AI: Automate the repetitive so you can focus on the thinking",
+    "06 AI Professional Branding: Sharpen your resume, LinkedIn, and professional voice",
+  ],
+  tools: ["Six modules", "Practical exercises", "Professional application"],
+  cover: "/portfolio/ai-essentials-cover.jpg",
+  slides: ["/portfolio/ai-essentials-cover.jpg", "/portfolio/ai-essentials-modules.jpg"],
+  cpd: true,
+};
+
 export const portfolioProjects: PortfolioProject[] = [
-  {
-    id: "ai-essentials",
-    title: "AI Essentials for Working Professionals",
-    shortTitle: "AI Essentials",
-    category: "Professional learning",
-    client: "Working professionals",
-    summary:
-      "A six-module course that teaches you how to use AI with confidence, accuracy, and judgment, whether you are new to AI or sharpening skills you already have.",
-    role: "Course architecture, module design, practical scenarios, and facilitation materials for professional learners.",
-    impact: [
-      "01 AI Foundations: What AI is, what it is not, and ground rules for responsible use",
-      "02 The Art of AI Prompting: Ask AI the right questions to get the right answers",
-      "03 AI for Research: Gather and cross-check information you can actually trust",
-      "04 AI Content Studio: Draft and tailor content for different audiences and formats",
-      "05 Streamlining with AI: Automate the repetitive so you can focus on the thinking",
-      "06 AI Professional Branding: Sharpen your resume, LinkedIn, and professional voice",
-    ],
-    tools: ["Six modules", "Practical exercises", "Professional application"],
-    cover: "/portfolio/ai-essentials-cover.jpg",
-    slides: ["/portfolio/ai-essentials-cover.jpg", "/portfolio/ai-essentials-modules.jpg"],
-    cpd: true,
-  },
   {
     id: "faculty-support-hub",
     title: "AI-Powered Faculty Digital Support Hub",

@@ -12,7 +12,7 @@ export const navLinks = [
   {
     href: "#course-quality-platform",
     label: "Portfolio",
-    sections: ["course-quality-platform", "portfolio", "credentials"],
+    sections: ["course-quality-platform", "portfolio", "ai-essentials", "credentials"],
   },
   { href: "#about", label: "About", sections: ["about", "process"] },
 ] as const;

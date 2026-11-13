@@ -37,7 +37,7 @@ export const innovations: InnovationItem[] = [
     number: "01",
     id: "product-hub",
     tone: "forest",
-    audience: "Faculty support",
+    audience: "Faculty Support",
     title: "Faculty Digital Support Hub",
     summary: "Smarter support for educators and instructional teams.",
     detail:
@@ -56,7 +56,7 @@ export const innovations: InnovationItem[] = [
     number: "02",
     id: "product-benchmark",
     tone: "gold",
-    audience: "Higher education",
+    audience: "Higher Education",
     title: "Course Quality Benchmark Tool",
     summary: "Transform course reviews into actionable insights.",
     detail:
@@ -75,8 +75,8 @@ export const innovations: InnovationItem[] = [
     number: "03",
     id: "product-automation",
     tone: "mint",
-    audience: "Business & organizational workflows",
-    title: "AI & automation solutions",
+    audience: "Business & Organizational Workflows",
+    title: "AI & Automation Solutions",
     summary: "Smarter processes. More time for meaningful work.",
     detail:
       "Practical AI-powered solutions that help educational institutions, organizations, and growing businesses automate repetitive tasks, streamline communication, improve scheduling, and manage everyday operations more efficiently.",
@@ -94,8 +94,8 @@ export const innovations: InnovationItem[] = [
     number: "04",
     id: "product-technology",
     tone: "sage",
-    audience: "Teaching & learning",
-    title: "Learning technology integration",
+    audience: "Teaching & Learning",
+    title: "Learning Technology Integration",
     summary: "Technology designed around teaching and learning.",
     detail:
       "Strategic selection, integration, and optimization of learning management systems, digital learning tools, and interactive technologies that enhance instruction and learner engagement.",
