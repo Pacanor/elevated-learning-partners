@@ -589,12 +589,6 @@ html, body { max-width: 100%; overflow-x: clip; }
   position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(4, 20, 14, 0.03) 20%, rgba(4, 20, 14, 0.92) 100%);
 }
-.project-cpd {
-  position: absolute; top: 18px; left: 18px; z-index: 2;
-  padding: 7px 10px; color: var(--tone-on-light); background: var(--gold);
-  border-radius: 999px; font-size: 0.68rem; font-weight: 900;
-  letter-spacing: 0.12em;
-}
 .project-content {
   position: absolute; right: 25px; bottom: 24px; left: 25px; display: grid;
 }
@@ -1131,16 +1125,16 @@ html, body { max-width: 100%; overflow-x: clip; }
 
 .course-showcase { background: var(--paper); }
 .course-showcase-layout {
-  display: grid; grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
-  align-items: center; gap: 48px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center; gap: 56px;
 }
 .course-showcase-media {
-  position: relative; overflow: hidden;
-  border-radius: 22px; background: var(--forest);
+  position: relative; overflow: hidden; min-width: 0;
+  border-radius: 18px; background: var(--forest);
   box-shadow: var(--shadow);
 }
 .course-showcase-media img {
-  width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
 }
 .course-showcase-badge {
   position: absolute; top: 16px; left: 16px;
@@ -1148,13 +1142,16 @@ html, body { max-width: 100%; overflow-x: clip; }
   background: var(--gold); border-radius: 4px;
   font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
 }
-.course-showcase-copy h2 { max-width: 16ch; }
+.course-showcase-copy {
+  min-width: 0; max-width: 38rem; justify-self: start;
+}
+.course-showcase-copy h2 { max-width: 14ch; }
 .course-showcase-lead {
-  max-width: 52ch; margin: 18px 0 22px; color: var(--muted);
+  max-width: 48ch; margin: 18px 0 22px; color: var(--muted);
   font-size: 1.12rem; line-height: 1.65;
 }
 .course-showcase-modules {
-  display: grid; margin: 0 0 28px; padding: 0; list-style: none; gap: 10px;
+  display: grid; margin: 0 0 18px; padding: 0; list-style: none; gap: 10px;
 }
 .course-showcase-modules li {
   display: flex; align-items: flex-start; gap: 10px;
@@ -1162,6 +1159,10 @@ html, body { max-width: 100%; overflow-x: clip; }
 }
 .course-showcase-modules svg {
   flex: 0 0 auto; margin-top: 3px; color: var(--gold-deep);
+}
+.course-showcase-custom {
+  max-width: 46ch; margin: 0 0 26px; color: var(--ink);
+  font-size: 1.02rem; line-height: 1.55; font-weight: 650;
 }
 
 .contact-section {

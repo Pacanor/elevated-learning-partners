@@ -576,7 +576,6 @@ function App() {
                 >
                   <img src={project.cover} alt="" loading="lazy" decoding="async" />
                   <span className="project-overlay" />
-                  {project.cpd && <span className="project-cpd">CPD</span>}
                   <span className="project-content">
                     <small>{project.category}</small>
                     <strong>{project.shortTitle}</strong>
@@ -593,7 +592,7 @@ function App() {
             <div className="course-showcase-media">
               <img
                 src={aiEssentialsCourse.cover}
-                alt="AI Essentials for Working Professionals course cover"
+                alt="Professional woman working at a computer during an AI Essentials learning session"
                 width={960}
                 height={720}
                 loading="lazy"
@@ -604,9 +603,9 @@ function App() {
             <div className="course-showcase-copy">
               <p className="eyebrow">CPD-certified learning</p>
               <h2 className="section-title">
-                {aiEssentialsCourse.shortTitle}
+                AI Essentials for
                 <br />
-                <span className="display-accent is-inline">for working professionals.</span>
+                <span className="display-accent is-inline">working professionals.</span>
               </h2>
               <p className="course-showcase-lead">{aiEssentialsCourse.summary}</p>
               <ul className="course-showcase-modules">
@@ -616,6 +615,9 @@ function App() {
                   </li>
                 ))}
               </ul>
+              <p className="course-showcase-custom">
+                Customization available — we tailor the six modules to your organization’s training goals.
+              </p>
               <div className="button-row">
                 <button
                   className="button button-primary"
@@ -624,7 +626,11 @@ function App() {
                 >
                   View the course <ArrowRight size={17} />
                 </button>
-                <CalendlyButton label="Book a call" className="button button-outline" iconSize={17} />
+                <CalendlyButton
+                  label="Discuss customization"
+                  className="button button-outline"
+                  iconSize={17}
+                />
               </div>
             </div>
           </div>

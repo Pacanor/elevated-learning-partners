@@ -65,7 +65,7 @@ export const leaders = [
     image: "/team/hannah-shelton-portrait.jpg",
     phone: "+14432209719",
     email: `hannah@${CONTACT_DOMAIN}`,
-    linkedin: "https://www.linkedin.com/in/hannah-shelton-learning",
+    linkedin: "https://www.linkedin.com/in/hannah-shelton-m-ed",
     whatsapp: "14432209719",
     qualification:
       "With certification in Quality Matters course review and Agentic AI Engineering, along with accessibility training through WebAIM, she combines evidence-based design, inclusive practices, and emerging technologies to create engaging, effective digital learning experiences.",

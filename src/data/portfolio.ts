@@ -10,8 +10,6 @@ export interface PortfolioProject {
   tools: string[];
   cover: string;
   slides: string[];
-  /** Course-related work eligible for CPD highlighting */
-  cpd?: boolean;
 }
 
 /** First CPD course — shown in its own showcase, not the portfolio carousel. */
@@ -22,7 +20,7 @@ export const aiEssentialsCourse: PortfolioProject = {
   category: "CPD-certified course",
   client: "Working professionals",
   summary:
-    "A six-module course that teaches you how to use AI with confidence, accuracy, and judgment, whether you are new to AI or sharpening skills you already have.",
+    "A six-module customizable course that teaches you how to use AI with confidence, accuracy, and judgment, whether you are new to AI or sharpening skills you already have.",
   role: "Course architecture, module design, practical scenarios, and facilitation materials for professional learners.",
   impact: [
     "01 AI Foundations: What AI is, what it is not, and ground rules for responsible use",
@@ -35,7 +33,6 @@ export const aiEssentialsCourse: PortfolioProject = {
   tools: ["Six modules", "Practical exercises", "Professional application"],
   cover: "/portfolio/ai-essentials-cover.jpg",
   slides: ["/portfolio/ai-essentials-cover.jpg", "/portfolio/ai-essentials-modules.jpg"],
-  cpd: true,
 };
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -92,7 +89,6 @@ export const portfolioProjects: PortfolioProject[] = [
     tools: ["Blackboard Ultra", "H5P", "Canva", "ChatPDF"],
     cover: "/portfolio/slide-15.png",
     slides: ["/portfolio/slide-13.png", "/portfolio/slide-14.png", "/portfolio/slide-15.png"],
-    cpd: true,
   },
   {
     id: "un-sdg-zero-hunger",
@@ -111,7 +107,6 @@ export const portfolioProjects: PortfolioProject[] = [
     tools: ["Articulate Rise 360", "Canva", "Jeopardy Labs"],
     cover: "/portfolio/slide-17.png",
     slides: ["/portfolio/slide-16.png", "/portfolio/slide-17.png", "/portfolio/slide-18.png"],
-    cpd: true,
   },
   {
     id: "purchase-card-compliance",
@@ -130,7 +125,6 @@ export const portfolioProjects: PortfolioProject[] = [
     tools: ["Lectora", "Adobe eLearning Suite", "Unity", "Moodle"],
     cover: "/portfolio/slide-20.png",
     slides: ["/portfolio/slide-19.png", "/portfolio/slide-20.png"],
-    cpd: true,
   },
   {
     id: "accessibility-compliance",
@@ -149,7 +143,6 @@ export const portfolioProjects: PortfolioProject[] = [
     tools: ["WAVE", "JAWS", "NVDA", "VoiceOver", "Acrobat Pro"],
     cover: "/portfolio/accessibility-preview.svg",
     slides: ["/portfolio/accessibility-preview.svg"],
-    cpd: true,
   },
   {
     id: "learning-analytics",
@@ -168,7 +161,6 @@ export const portfolioProjects: PortfolioProject[] = [
     tools: ["Blackboard Analytics", "Google Forms", "Rise 360", "H5P"],
     cover: "/portfolio/analytics-preview.svg",
     slides: ["/portfolio/analytics-preview.svg"],
-    cpd: true,
   },
   {
     id: "content-curation",
@@ -187,6 +179,5 @@ export const portfolioProjects: PortfolioProject[] = [
     tools: ["Canva", "D2L LMS", "OER repositories"],
     cover: "/portfolio/content-curation-preview.svg",
     slides: ["/portfolio/content-curation-preview.svg"],
-    cpd: true,
   },
 ];
