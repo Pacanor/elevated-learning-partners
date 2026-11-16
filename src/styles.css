@@ -1139,7 +1139,7 @@ html, body { max-width: 100%; overflow-x: clip; }
 }
 .course-showcase-media img {
   display: block; width: 100%; height: auto; aspect-ratio: 4 / 3;
-  object-fit: cover; object-position: 72% 45%;
+  object-fit: cover; object-position: center 42%;
 }
 .course-showcase-badge {
   position: absolute; top: 16px; left: 16px;
@@ -1150,7 +1150,8 @@ html, body { max-width: 100%; overflow-x: clip; }
 .course-showcase-copy {
   min-width: 0; max-width: 38rem; justify-self: start;
 }
-.course-showcase-copy h2 { max-width: 14ch; }
+.course-showcase-copy h2 { max-width: none; }
+.course-showcase-copy h2 .display-accent { white-space: nowrap; }
 .course-showcase-lead {
   max-width: 48ch; margin: 18px 0 22px; color: var(--muted);
   font-size: 1.12rem; line-height: 1.65;
