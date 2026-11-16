@@ -619,16 +619,9 @@ function App() {
                 Customization available — we tailor the six modules to your organization’s training goals.
               </p>
               <div className="button-row">
-                <button
-                  className="button button-primary"
-                  type="button"
-                  onClick={(event) => openProject(aiEssentialsCourse, event)}
-                >
-                  View the course <ArrowRight size={17} />
-                </button>
                 <CalendlyButton
                   label="Discuss customization"
-                  className="button button-outline"
+                  className="button button-primary"
                   iconSize={17}
                 />
               </div>
